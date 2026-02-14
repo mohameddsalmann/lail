@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #333333;
+  --primary: #e53935;
+  --primary-dark: #c62828;
+  --primary-light: #ff6659;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a4a4a;
+  --text-muted: #888888;
+  --border: #e0e0e0;
+  --border-light: #f0f0f0;
+  --muted-bg: #f5f5f5;
+  --card-bg: #ffffff;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --badge-women: #e53935;
+  --badge-unisex: #666666;
+  --badge-men: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-muted-bg: var(--muted-bg);
+  --color-card-bg: var(--card-bg);
+  --color-badge-women: var(--badge-women);
+  --color-badge-unisex: var(--badge-unisex);
+  --color-badge-men: var(--badge-men);
+  --font-sans: var(--font-inter);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaaaaa;
+}
+
+/* Selection */
+::selection {
+  background-color: #e53935;
+  color: white;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #e53935;
+  color: #ffffff;
+  padding: 12px 32px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #c62828;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 12px 32px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  border-color: #1a1a1a;
+}
+
+/* Product Card */
+.product-card {
+  background: #ffffff;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Badge */
+.badge-women {
+  background-color: #e53935;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.badge-unisex {
+  background-color: #666666;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.badge-men {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 10px;
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+/* Link */
+.link-primary {
+  color: #e53935;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-primary:hover {
+  color: #c62828;
+  text-decoration: underline;
+}
+
+/* Star rating */
+.star-filled {
+  color: #1a1a1a;
+}
+
+.star-empty {
+  color: #e0e0e0;
+}
+
+/* Progress bar */
+.progress-bar {
+  background-color: #e53935;
+  height: 4px;
+}
+
+.progress-track {
+  background-color: #e0e0e0;
+  height: 4px;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="search"] {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus {
+  border-color: #1a1a1a;
+}
+
+/* Card container */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+/* Match percentage */
+.match-badge {
+  background-color: #e53935;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px 12px;
+}
