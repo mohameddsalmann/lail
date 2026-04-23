@@ -1,4 +1,4 @@
-// Types for the nspired Perfume Recommendation Quiz
+// Types for the Lail Fragrances Perfume Recommendation Quiz
 
 export interface Perfume {
   id: string;
@@ -12,6 +12,9 @@ export interface Perfume {
   imageUrl: string;
   sourceUrl: string;
   inStock: boolean;
+  mainNotes: string[];       // ORDERED from most important to least important (drives position scoring)
+  seasons: string[];          // e.g. ["summer", "spring", "all"]
+  longevity: 'moderate' | 'strong' | 'enormous';
   notes: {
     top: string[];
     middle: string[];

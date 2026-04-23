@@ -107,7 +107,7 @@ export default function QuizQuestion({ step, value, onChange }: QuizQuestionProp
                 </p>
             )}
             {step.type === 'multiple' && (
-                <p className="text-sm text-[#e53935] mb-4">Select all that apply</p>
+                <p className="text-sm text-[#6A1B9A] mb-4">Select all that apply</p>
             )}
             {showSearch && (
                 <div className="mb-5 relative">

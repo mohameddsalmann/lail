@@ -59,7 +59,7 @@ export default function QuizNavigation({
                 className={`
                     px-8 py-3 text-sm uppercase tracking-wider font-medium transition-all
                     ${canGoNext
-                        ? 'bg-[#e53935] text-white hover:bg-[#c62828]'
+                        ? 'bg-[#6A1B9A] text-white hover:bg-[#4A148C]'
                         : 'bg-[#e0e0e0] text-[#888888] cursor-not-allowed'
                     }
                 `}

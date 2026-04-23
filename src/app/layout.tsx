@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,10 +7,15 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
-  title: "nspired - Find Your Perfect Scent",
-  description: "Discover luxury fragrances at inspired prices. Take our quiz to find your perfect match from nspired perfumes.",
-  keywords: ["perfume", "fragrance", "nspired", "quiz", "recommendation", "Egypt", "Source Beauty"],
+  title: "Lail Fragrances - Your Egyptian Gateway to Luxurious Fragrances",
+  description: "Discover luxury fragrances at Lail Fragrances. Take our personalized quiz to find your perfect scent from our curated collection.",
+  keywords: ["perfume", "fragrance", "Lail Fragrances", "quiz", "recommendation", "Egypt", "luxury", "scent"],
 };
 
 export default function RootLayout({
@@ -20,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased font-sans`}>
+      <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         {children}
       </body>
     </html>

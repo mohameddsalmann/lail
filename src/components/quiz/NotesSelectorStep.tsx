@@ -71,7 +71,7 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
     };
 
     const isLove = mode === 'love';
-    const highlightClass = isLove ? 'text-[#e53935]' : 'text-[#c62828]';
+    const highlightClass = isLove ? 'text-[#6A1B9A]' : 'text-[#4A148C]';
 
     return (
         <div className="space-y-5">
@@ -193,7 +193,7 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
                                                             className={`
                                                                 inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition
                                                                 ${selected
-                                                                    ? 'bg-[#e53935] text-white'
+                                                                    ? 'bg-[#6A1B9A] text-white'
                                                                     : 'bg-white text-[#1a1a1a] border border-[#e0e0e0] hover:border-[#888888]'
                                                                 }
                                                                 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
@@ -215,7 +215,7 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
             </div>
 
             {atLimit && isLove && (
-                <p className="text-sm text-[#e53935] text-center">
+                <p className="text-sm text-[#6A1B9A] text-center">
                     You&apos;ve reached the maximum of {MAX_LOVE_SELECTIONS} notes. Remove one to add another.
                 </p>
             )}

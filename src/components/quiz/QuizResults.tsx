@@ -31,7 +31,7 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                     <div className="flex flex-col gap-3">
                         <button
                             onClick={onRetake}
-                            className="bg-[#e53935] text-white px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#c62828] transition"
+                            className="bg-[#6A1B9A] text-white px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#4A148C] transition"
                         >
                             Try Again
                         </button>
@@ -53,11 +53,11 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
             <header className="bg-white border-b border-[#e0e0e0]">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="text-2xl font-semibold tracking-wide text-[#1a1a1a]">
-                        <span className="font-light">n</span>spired
+                        LAIL
                     </Link>
                     <Link
                         href="/"
-                        className="text-sm text-[#4a4a4a] hover:text-[#e53935] transition flex items-center gap-2"
+                        className="text-sm text-[#4a4a4a] hover:text-[#6A1B9A] transition flex items-center gap-2"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -75,7 +75,7 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                         animate={{ opacity: 1, y: 0 }}
                         className="text-center mb-10"
                     >
-                        <p className="text-[#e53935] text-sm uppercase tracking-widest mb-2 font-medium">
+                        <p className="text-[#6A1B9A] text-sm uppercase tracking-widest mb-2 font-medium">
                             Quiz Complete
                         </p>
                         <h2 className="text-3xl md:text-4xl font-light text-[#1a1a1a] mb-3">
@@ -120,7 +120,7 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                         </button>
                         <Link
                             href="/"
-                            className="px-8 py-3 bg-[#e53935] text-white text-sm uppercase tracking-wider font-medium hover:bg-[#c62828] transition text-center"
+                            className="px-8 py-3 bg-[#6A1B9A] text-white text-sm uppercase tracking-wider font-medium hover:bg-[#4A148C] transition text-center"
                         >
                             Browse All
                         </Link>
@@ -136,12 +136,12 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                         <p className="text-[#888888] text-sm">
                             All fragrances available at{' '}
                             <a
-                                href="https://nspiredbeauty.com"
+                                href="https://lailfragrances.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-[#e53935] hover:underline"
+                                className="text-[#6A1B9A] hover:underline"
                             >
-                                nspired Beauty
+                                Lail Fragrances
                             </a>
                         </p>
                     </motion.div>

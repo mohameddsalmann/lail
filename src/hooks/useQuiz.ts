@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react';
 import { QuizAnswers, RecommendationResult } from '@/types';
 import { quizSteps } from '@/config/quizSteps';
 import { perfumes } from '@/data/perfumes';
-import { calculateRecommendations } from '@/lib/recommendationEngine';
+import { recommendPerfumes } from '@/lib/recommendation/recommend';
 
 const initialAnswers: QuizAnswers = {
     gender: null,
@@ -47,7 +47,7 @@ export function useQuiz() {
         // Simulate API delay for better UX
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        const results = calculateRecommendations(answers, perfumes);
+        const results = recommendPerfumes(answers, perfumes);
         setRecommendations(results);
         setIsComplete(true);
         setIsLoading(false);

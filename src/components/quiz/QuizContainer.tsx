@@ -40,7 +40,7 @@ export default function QuizContainer() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center"
                 >
-                    <div className="w-10 h-10 border-2 border-[#e53935] border-t-transparent rounded-full animate-spin mx-auto mb-6" />
+                    <div className="w-10 h-10 border-2 border-[#6A1B9A] border-t-transparent rounded-full animate-spin mx-auto mb-6" />
                     <p className="text-lg font-medium text-[#1a1a1a]">Finding your perfect scents...</p>
                     <p className="text-[#888888] text-sm mt-2">Analyzing your preferences</p>
                 </motion.div>
@@ -57,11 +57,11 @@ export default function QuizContainer() {
             <header className="bg-white border-b border-[#e0e0e0]">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between">
                     <Link href="/" className="text-2xl font-semibold tracking-wide text-[#1a1a1a]">
-                        <span className="font-light">n</span>spired
+                        LAIL
                     </Link>
                     <Link
                         href="/"
-                        className="text-sm text-[#4a4a4a] hover:text-[#e53935] transition flex items-center gap-2"
+                        className="text-sm text-[#4a4a4a] hover:text-[#6A1B9A] transition flex items-center gap-2"
                     >
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -83,7 +83,7 @@ export default function QuizContainer() {
                             Find Your <span className="font-semibold">Perfect Scent</span>
                         </h2>
                         <p className="text-[#4a4a4a] text-sm">
-                            Answer a few questions to discover your ideal nspired fragrance
+                            Answer a few questions to discover your ideal Lail fragrance
                         </p>
                     </motion.div>
 

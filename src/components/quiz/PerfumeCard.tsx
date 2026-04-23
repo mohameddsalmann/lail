@@ -15,7 +15,7 @@ interface PerfumeCardProps {
 export default function PerfumeCard({ perfume, matchScore, matchReasons, rank }: PerfumeCardProps) {
     const getBadge = () => {
         switch (rank) {
-            case 1: return { label: '#1 Best Match', color: 'bg-[#e53935] text-white' };
+            case 1: return { label: '#1 Best Match', color: 'bg-[#6A1B9A] text-white' };
             case 2: return { label: '#2 Great Match', color: 'bg-[#1a1a1a] text-white' };
             case 3: return { label: '#3 Good Match', color: 'bg-[#666666] text-white' };
             default: return null;
@@ -27,7 +27,7 @@ export default function PerfumeCard({ perfume, matchScore, matchReasons, rank }:
     // Get gender badge color
     const getGenderBadge = () => {
         switch (perfume.gender) {
-            case 'female': return { label: 'Women', color: 'bg-[#e53935]' };
+            case 'female': return { label: 'Women', color: 'bg-[#6A1B9A]' };
             case 'male': return { label: 'Men', color: 'bg-[#1a1a1a]' };
             default: return { label: 'Unisex', color: 'bg-[#666666]' };
         }
@@ -69,7 +69,7 @@ export default function PerfumeCard({ perfume, matchScore, matchReasons, rank }:
                 </div>
 
                 {/* Match Score Badge */}
-                <div className="absolute bottom-3 right-3 bg-[#e53935] text-white text-xs font-semibold px-3 py-1.5">
+                <div className="absolute bottom-3 right-3 bg-[#6A1B9A] text-white text-xs font-semibold px-3 py-1.5">
                     {matchScore}% Match
                 </div>
             </div>
@@ -104,7 +104,7 @@ export default function PerfumeCard({ perfume, matchScore, matchReasons, rank }:
                 {perfume.inspiredBy && perfume.inspiredBy !== 'nspired beauty' && (
                     <div className="mb-3">
                         <p className="text-xs text-[#888888]">inspired by</p>
-                        <p className="text-xs text-[#e53935]">{perfume.inspiredBy}</p>
+                        <p className="text-xs text-[#C9A84C]">{perfume.inspiredBy}</p>
                     </div>
                 )}
 
@@ -126,7 +126,7 @@ export default function PerfumeCard({ perfume, matchScore, matchReasons, rank }:
                     href={perfume.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-4 bg-[#e53935] text-white text-center py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#c62828] transition"
+                    className="block mt-4 bg-[#6A1B9A] text-white text-center py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#4A148C] transition"
                 >
                     Buy Now
                 </a>

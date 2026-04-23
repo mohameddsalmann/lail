@@ -1,1491 +1,737 @@
 [
   {
     "id": "1",
-    "slug": "be-my-forte",
-    "name": "Be My Fortè",
-    "inspiredBy": "Armani's Stronger With You",
-    "price": 485,
+    "name": "Summer hammer (Bali)",
+    "slug": "summer-hammer-bali",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/be-my-forte.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/be-my-forte",
+    "imageUrl": "/images/summer-hammer-bali.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/summer-hammer-bali",
     "inStock": true,
+    "mainNotes": [
+      "Mango",
+      "Pineapple Coconut",
+      "Marine notes",
+      "Musk",
+      "White rum"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Cardamom",
-        "Pink Pepper",
-        "Violet",
-        "Mint"
+        "Mango",
+        "Pineapple Coconut"
       ],
       "middle": [
-        "Sage",
-        "Melon",
-        "Pineapple"
+        "Marine notes",
+        "Musk"
       ],
       "base": [
-        "Vanilla",
-        "Chestnut",
-        "Cedar"
+        "White rum"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:09.864Z"
+    }
   },
   {
     "id": "2",
-    "slug": "discovery-set-1",
-    "name": "Discovery Set For Her",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
+    "name": "Erba pura xerjoff (Trobica )",
+    "slug": "erba-pura-xerjoff-trobica",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/discovery-set-1.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/discovery-set-1",
+    "imageUrl": "/images/erba-pura-xerjoff-trobica.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/erba-pura-xerjoff-trobica",
     "inStock": true,
+    "mainNotes": [
+      "Tropical fruits",
+      "Vanilla",
+      "Musk",
+      "Amber"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
-      "top": [],
-      "middle": [],
-      "base": []
-    },
-    "scrapedAt": "2026-01-31T04:11:12.172Z"
+      "top": [
+        "Tropical fruits",
+        "Vanilla"
+      ],
+      "middle": [
+        "Musk"
+      ],
+      "base": [
+        "Amber"
+      ]
+    }
   },
   {
     "id": "3",
-    "slug": "wild-child",
-    "name": "Wild Child",
-    "inspiredBy": "Dior's Sauvage",
-    "price": 485,
+    "name": "Le beau paradis garden ( Maldives)",
+    "slug": "le-beau-paradis-garden-maldives",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
     "gender": "male",
     "description": "",
-    "imageUrl": "/images/wild-child.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/wild-child",
+    "imageUrl": "/images/le-beau-paradis-garden-maldives.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/le-beau-paradis-garden-maldives",
     "inStock": true,
+    "mainNotes": [
+      "Coconut",
+      "Green notes",
+      "Fig",
+      "Water notes",
+      "Mint"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
     "notes": {
       "top": [
-        "Bergamot",
-        "Pepper"
+        "Coconut",
+        "Green notes"
       ],
-      "middle": [],
-      "base": []
-    },
-    "scrapedAt": "2026-01-31T04:11:14.286Z"
+      "middle": [
+        "Fig",
+        "Water notes"
+      ],
+      "base": [
+        "Mint"
+      ]
+    }
   },
   {
     "id": "4",
-    "slug": "gatsbys-spice",
-    "name": "Gatsby's Spice",
-    "inspiredBy": "Tom Ford's Black Orchid",
-    "price": 485,
+    "name": "Y edp ( Blue nights )",
+    "slug": "y-edp-blue-nights",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "unisex",
+    "gender": "male",
     "description": "",
-    "imageUrl": "/images/gatsbys-spice.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/gatsbys-spice",
+    "imageUrl": "/images/y-edp-blue-nights.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/y-edp-blue-nights",
     "inStock": true,
+    "mainNotes": [
+      "Green apple",
+      "Ginger",
+      "Bergamot",
+      "Juniper Berries"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Truffle",
-        "Bergamot",
-        "Blackcurrant",
-        "Ylang"
+        "Green apple",
+        "Ginger"
       ],
       "middle": [
-        "Orchid",
-        "Lotus",
-        "Fruity Accord"
+        "Bergamot"
       ],
       "base": [
-        "Chocolate",
-        "Olibanum",
-        "Sandalwood",
-        "Vetiver",
-        "Patchouli",
-        "Vanilla"
+        "Juniper Berries"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:16.314Z"
+    }
   },
   {
     "id": "5",
-    "slug": "indigo-drop",
-    "name": "Indigo Drop",
-    "inspiredBy": "Chanel's Bleu De Chanel",
-    "price": 485,
+    "name": "Burberry gold ( Ranoula )",
+    "slug": "burberry-gold-ranoula",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "female",
     "description": "",
-    "imageUrl": "/images/indigo-drop.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/indigo-drop",
+    "imageUrl": "/images/burberry-gold-ranoula.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/burberry-gold-ranoula",
     "inStock": true,
+    "mainNotes": [
+      "Vanilla",
+      "Vanilla caviar",
+      "Lavender",
+      "Cacao"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Grapefruit",
-        "Lemon",
-        "Mint",
-        "Pink Pepper"
+        "Vanilla",
+        "Vanilla caviar"
       ],
       "middle": [
-        "Ginger",
-        "Nutmeg",
-        "Jasmine"
+        "Lavender"
       ],
       "base": [
-        "Incense",
-        "Vetiver",
-        "Cedar",
-        "Sandalwood",
-        "Patchouli",
-        "Labdanum",
-        "White Musk"
+        "Cacao"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:18.554Z"
+    }
   },
   {
     "id": "6",
-    "slug": "bella-vita",
-    "name": "Bella Vita",
-    "inspiredBy": "Lancome's La Vie Est Belle",
-    "price": 485,
+    "name": "apple brandy (tuxedo)",
+    "slug": "apple-brandy-tuxedo",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/bella-vita.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/bella-vita",
+    "imageUrl": "/images/apple-brandy-tuxedo.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/apple-brandy-tuxedo",
     "inStock": true,
+    "mainNotes": [
+      "Green apple",
+      "Vanilla",
+      "Brandy",
+      "Rum",
+      "Pineapple"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Black Currant",
-        "Aldehydic Accord"
+        "Green apple",
+        "Vanilla"
       ],
       "middle": [
-        "Jasmine",
-        "Orris",
-        "Orange Blossom"
+        "Brandy",
+        "Rum"
       ],
       "base": [
-        "Tonka Bean",
-        "Vanilla",
-        "Praline",
-        "Patchouli"
+        "Pineapple"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:20.472Z"
+    }
   },
   {
     "id": "7",
-    "slug": "discovery-set-for-him",
-    "name": "Discovery Set For Him",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
+    "name": "imagination by lv (spark)",
+    "slug": "imagination-by-lv-spark",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
     "gender": "male",
     "description": "",
-    "imageUrl": "/images/discovery-set-for-him.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/discovery-set-for-him",
+    "imageUrl": "/images/imagination-by-lv-spark.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/imagination-by-lv-spark",
     "inStock": true,
+    "mainNotes": [
+      "Chinese tea",
+      "Citron",
+      "Bergamot",
+      "Orange",
+      "Neroli"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
     "notes": {
-      "top": [],
-      "middle": [],
-      "base": []
-    },
-    "scrapedAt": "2026-01-31T04:11:22.671Z"
+      "top": [
+        "Chinese tea",
+        "Citron"
+      ],
+      "middle": [
+        "Bergamot",
+        "Orange"
+      ],
+      "base": [
+        "Neroli"
+      ]
+    }
   },
   {
     "id": "8",
-    "slug": "vanilla-blooms",
-    "name": "Vanilla Blooms",
-    "inspiredBy": "Mancera's Roses Vanilla",
-    "price": 485,
+    "name": "symphony by lv (Symphony)",
+    "slug": "symphony-by-lv-symphony",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
     "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/vanilla-blooms.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/vanilla-blooms",
+    "imageUrl": "/images/symphony-by-lv-symphony.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/symphony-by-lv-symphony",
     "inStock": true,
+    "mainNotes": [
+      "Grapefruit",
+      "Bergamot",
+      "Ginger"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Lemon",
-        "Morning Dew"
+        "Grapefruit"
       ],
       "middle": [
-        "Rose"
+        "Bergamot"
       ],
       "base": [
-        "Cedar",
-        "Musk"
+        "Ginger"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:24.718Z"
+    }
   },
   {
     "id": "9",
-    "slug": "sea-me-sometime",
-    "name": "Sea Me Sometime",
-    "inspiredBy": "Armani's Acqua Di Gio",
-    "price": 485,
+    "name": "pacific chill by lv ( breeze)",
+    "slug": "pacific-chill-by-lv-breeze",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/sea-me-sometime.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/sea-me-sometime",
+    "imageUrl": "/images/pacific-chill-by-lv-breeze.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/pacific-chill-by-lv-breeze",
     "inStock": true,
+    "mainNotes": [
+      "Apricot",
+      "Citron",
+      "Beach",
+      "Orange",
+      "Lemon",
+      "Mint"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Bergamot",
-        "Lemon",
-        "Mandarin"
+        "Apricot",
+        "Citron"
       ],
       "middle": [
-        "Coriander",
-        "Freesia",
-        "Marine Notes"
+        "Beach",
+        "Orange"
       ],
       "base": [
-        "Cedar",
-        "Patchouli",
-        "Musk",
-        "Moss"
+        "Lemon",
+        "Mint"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:26.924Z"
+    }
   },
   {
     "id": "10",
-    "slug": "hot-stiletto",
-    "name": "Hot Stiletto",
-    "inspiredBy": "Carolina Herrera's Good Girl",
-    "price": 485,
+    "name": "nishane hacivat ( denaro)",
+    "slug": "nishane-hacivat-denaro",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/hot-stiletto.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/hot-stiletto",
+    "imageUrl": "/images/nishane-hacivat-denaro.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/nishane-hacivat-denaro",
     "inStock": true,
+    "mainNotes": [
+      "Oakmoss",
+      "Pineapple",
+      "Grapefruit",
+      "Woods"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Almond",
-        "Coffee"
+        "Oakmoss",
+        "Pineapple"
       ],
       "middle": [
-        "Jasmines",
-        "Tuberose"
+        "Grapefruit"
       ],
       "base": [
-        "Tonka Bean",
-        "Chocolate"
+        "Woods"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:29.155Z"
+    }
   },
   {
     "id": "11",
-    "slug": "titans-trophy",
-    "name": "Titan's Trophy",
-    "inspiredBy": "Paco Rabanne's Invictus",
-    "price": 485,
+    "name": "valero ( valero x )",
+    "slug": "valero-valero-x",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/titans-trophy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/titans-trophy",
+    "imageUrl": "/images/valero-valero-x.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/valero-valero-x",
     "inStock": true,
+    "mainNotes": [
+      "Geranium",
+      "Lavender",
+      "Bergamot",
+      "Citron"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Grapefruit",
-        "Marine Accord"
+        "Geranium",
+        "Lavender"
       ],
       "middle": [
-        "Laurel",
-        "Gaiac Wood"
+        "Bergamot"
       ],
       "base": [
-        "Patchouli",
-        "Amber"
+        "Citron"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:32.277Z"
+    }
   },
   {
     "id": "12",
-    "slug": "greek-icon",
-    "name": "Greek Icon",
-    "inspiredBy": "Paco Rabanne's Olympea",
-    "price": 485,
+    "name": "tygar bvlgari ( ليث )",
+    "slug": "tygar-bvlgari",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "male",
     "description": "",
-    "imageUrl": "/images/greek-icon.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/greek-icon",
+    "imageUrl": "/images/tygar-bvlgari.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/tygar-bvlgari",
     "inStock": true,
+    "mainNotes": [
+      "Grapefruit",
+      "Musk",
+      "Amber",
+      "Ginger"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Jasmine",
-        "Mandarin",
-        "Ginger Flower"
+        "Grapefruit",
+        "Musk"
       ],
       "middle": [
-        "Vanilla"
+        "Amber"
       ],
       "base": [
-        "Grey Amber",
-        "Cashmere Wood",
-        "Sandalwood"
+        "Ginger"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:34.287Z"
+    }
   },
   {
     "id": "13",
-    "slug": "rogue-potion",
-    "name": "Rogue Potion",
-    "inspiredBy": "Dior's Sauvage Elixir",
-    "price": 485,
+    "name": "gød of fire (عويس)",
+    "slug": "g-d-of-fire",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/rogue-potion.png",
-    "sourceUrl": "https://nspiredbeauty.com/products/rogue-potion",
+    "imageUrl": "/images/g-d-of-fire.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/g-d-of-fire",
     "inStock": true,
+    "mainNotes": [
+      "Mango",
+      "Lemon",
+      "Ginger",
+      "Musk",
+      "Berries",
+      "Amber"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
     "notes": {
       "top": [
-        "Nutmeg",
-        "Cinnamon",
-        "Cardamom",
-        "Grapefruit"
+        "Mango",
+        "Lemon"
       ],
       "middle": [
-        "Lavender"
+        "Ginger",
+        "Musk"
       ],
       "base": [
-        "Licorice",
-        "Sandalwood",
-        "Amber",
-        "Patchouli",
-        "Haitian Vetiver"
+        "Berries",
+        "Amber"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:36.532Z"
+    }
   },
   {
     "id": "14",
-    "slug": "lady-c",
-    "name": "Lady C",
-    "inspiredBy": "Chanel's Coco Mademoiselle",
-    "price": 485,
+    "name": "Dylan blue (raven)",
+    "slug": "dylan-blue-raven",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "male",
     "description": "",
-    "imageUrl": "/images/lady-c.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/lady-c",
+    "imageUrl": "/images/dylan-blue-raven.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/dylan-blue-raven",
     "inStock": true,
+    "mainNotes": [
+      "Ambroxan",
+      "Bergamot Orange",
+      "Water notes",
+      "Grapefruit",
+      "Incense",
+      "Pepper"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
     "notes": {
       "top": [
-        "Bergamot",
-        "Orange",
-        "Mandarin"
+        "Ambroxan",
+        "Bergamot Orange"
       ],
       "middle": [
-        "Rose",
-        "Jasmine"
+        "Water notes",
+        "Grapefruit"
       ],
       "base": [
-        "Musk",
-        "Vanilla",
-        "Vetiver",
-        "Patchouli"
+        "Incense",
+        "Pepper"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:38.872Z"
+    }
   },
   {
     "id": "15",
-    "slug": "naughty-honey",
-    "name": "Naughty Honey",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
+    "name": "steller times ( Majestic )",
+    "slug": "steller-times-majestic",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "female",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/naughty-honey.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/naughty-honey",
+    "imageUrl": "/images/steller-times-majestic.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/steller-times-majestic",
     "inStock": true,
+    "mainNotes": [
+      "Orange blossom",
+      "Amber",
+      "Wood notes"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Blood Orange and Mandarin Orange"
+        "Orange blossom"
       ],
       "middle": [
-        "Honey",
-        "Gardenia",
-        "Orange Blossom",
-        "Jasmine and Peach"
+        "Amber"
       ],
       "base": [
-        "Beeswax",
-        "Caramel",
-        "Patchouli and Licorice"
+        "Wood notes"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:41.202Z"
+    }
   },
   {
     "id": "16",
-    "slug": "macho-muse",
-    "name": "Macho Muse",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
+    "name": "torino 21 ( Mintos )",
+    "slug": "torino-21-mintos",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "male",
+    "gender": "unisex",
     "description": "",
-    "imageUrl": "/images/macho-muse.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/macho-muse",
+    "imageUrl": "/images/torino-21-mintos.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/torino-21-mintos",
     "inStock": true,
+    "mainNotes": [
+      "Mint",
+      "Lemon",
+      "Musk",
+      "Black currant"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Pear",
-        "Lavender",
         "Mint",
-        "Bergamot",
         "Lemon"
       ],
       "middle": [
-        "Cinnamon",
-        "Clary Sage",
-        "Caraway"
+        "Musk"
       ],
       "base": [
-        "Black Vanilla Husk",
-        "Amber",
-        "Patchouli",
-        "Cedar"
+        "Black currant"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:11:43.171Z"
+    }
   },
   {
     "id": "17",
-    "slug": "scarlet-seduction",
-    "name": "Scarlet Seduction",
-    "inspiredBy": "Maison Francis Kurkdjian's Baccarat Rouge 540",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/scarlet-seduction.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/scarlet-seduction",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Blood orange",
-        "Citrus Accord"
-      ],
-      "middle": [
-        "Floral accord",
-        "Lavender",
-        "Sage",
-        "Saffron"
-      ],
-      "base": [
-        "Grey Amber",
-        "Oak Moss"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:45.160Z"
-  },
-  {
-    "id": "18",
-    "slug": "rebellion-pulse",
-    "name": "Rebellion Pulse",
-    "inspiredBy": "YSL's Libre",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/rebellion-pulse.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/rebellion-pulse",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Lavender",
-        "Mandarin",
-        "Black Currant",
-        "Petitgrain"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Jasmine"
-      ],
-      "base": [
-        "Madagascar Vanilla",
-        "Musk",
-        "Cedar",
-        "Ambergris"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:47.180Z"
-  },
-  {
-    "id": "19",
-    "slug": "elixir-of-desire",
-    "name": "Elixir Of Desire",
-    "inspiredBy": "Armani's Si Passione",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/hot-stiletto.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/elixir-of-desire",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Pink Pepper",
-        "Pear",
-        "Black Currant"
-      ],
-      "middle": [
-        "Rose",
-        "Jasmine",
-        "Heliotrope"
-      ],
-      "base": [
-        "Cedarwood",
-        "Vanilla"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:49.262Z"
-  },
-  {
-    "id": "20",
-    "slug": "berry-pop",
-    "name": "Berry Pop",
-    "inspiredBy": "Burberry Her",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/berry-pop.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/berry-pop",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Blackberry",
-        "Cassis",
-        "Violet"
-      ],
-      "middle": [
-        "Jasmine",
-        "Iris",
-        "Rose"
-      ],
-      "base": [
-        "Ambroxan",
-        "Patchouli",
-        "Vanilla"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:51.464Z"
-  },
-  {
-    "id": "21",
-    "slug": "gold-bar",
-    "name": "Gold Bar",
-    "inspiredBy": "Paco Rabanne's 1 Million",
-    "price": 485,
+    "name": "le bau la parfume (woody coconut )",
+    "slug": "le-bau-la-parfume-woody-coconut",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
     "gender": "male",
     "description": "",
-    "imageUrl": "/images/gold-bar.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/gold-bar",
+    "imageUrl": "/images/le-bau-la-parfume-woody-coconut.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/le-bau-la-parfume-woody-coconut",
     "inStock": true,
+    "mainNotes": [
+      "Coconut",
+      "Pineapple",
+      "Tonka beans",
+      "Iris",
+      "Woods notes"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Mandarin",
-        "Grapefruit",
-        "Peppermint"
+        "Coconut",
+        "Pineapple"
       ],
       "middle": [
-        "Rose",
-        "Cinnamon",
-        "Spicy Accord"
-      ],
-      "base": [
-        "Patchouli",
-        "Leather",
-        "Amber"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:53.560Z"
-  },
-  {
-    "id": "22",
-    "slug": "dark-candy",
-    "name": "Dark Candy",
-    "inspiredBy": "Tom Ford's Lost Cherry",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/dark-candy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/dark-candy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Morello cherry",
-        "Almond"
-      ],
-      "middle": [
-        "Cherry",
-        "Rose Jasmine",
-        "Plum"
-      ],
-      "base": [
-        "Tonka",
-        "Vetiver"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:55.484Z"
-  },
-  {
-    "id": "23",
-    "slug": "inferno-spice",
-    "name": "Inferno Spice",
-    "inspiredBy": "Viktor & Rolf's Spicebomb",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/inferno-spice.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/inferno-spice",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Pink Pepper",
-        "Grapefruit"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Saffron",
-        "Paprika"
-      ],
-      "base": [
-        "Tobacco",
-        "Leather",
-        "Vetiver"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:57.415Z"
-  },
-  {
-    "id": "24",
-    "slug": "fabulous-riot-copy",
-    "name": "Oud Odyssey",
-    "inspiredBy": "Dior's Oud Ispahan",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/fabulous-riot-copy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/fabulous-riot-copy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Rose"
-      ],
-      "middle": [
-        "Patchouli",
-        "Cedar Sandalwood",
-        "Oud"
-      ],
-      "base": [
-        "Labdanum",
-        "Saffron"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:11:59.440Z"
-  },
-  {
-    "id": "25",
-    "slug": "floral-fantasy",
-    "name": "Floral Fantasy",
-    "inspiredBy": "Viktor & Rolf's Flowerbomb",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/floral-fantasy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/floral-fantasy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Tea"
-      ],
-      "middle": [
-        "Jasmine",
-        "Orchid",
-        "Freesia",
-        "Rose"
-      ],
-      "base": [
-        "Musk",
-        "Patchouli"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:01.527Z"
-  },
-  {
-    "id": "26",
-    "slug": "velvet-muse",
-    "name": "Velvet Muse",
-    "inspiredBy": "Miss Dior",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/velvet-muse.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/velvet-muse",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Mandarin",
-        "Violet",
-        "Strawberry"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Popcorn"
-      ],
-      "base": [
-        "Patchouli",
-        "Musk"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:03.649Z"
-  },
-  {
-    "id": "27",
-    "slug": "vanilla-lust-100ml",
-    "name": "Vanilla Lust",
-    "inspiredBy": "Tom Ford's Vanilla Sex",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/vanilla-lust-100ml.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/vanilla-lust-100ml",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Bitter Almond"
-      ],
-      "middle": [
-        "Vanilla",
-        "Floral Notes"
-      ],
-      "base": [
-        "Vanilla Absolute",
-        "Tonka Bean",
-        "Sandalwood"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:05.670Z"
-  },
-  {
-    "id": "28",
-    "slug": "sugared-lace",
-    "name": "Sugared Lace",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/discovery-set-1.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/sugared-lace",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Vanilla",
-        "Orchid",
-        "Jasmine"
-      ],
-      "middle": [
-        "Brown Sugar",
-        "Tonka Bean"
-      ],
-      "base": [
-        "Amber",
-        "Amberwood",
-        "Musk",
-        "Patchouli"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:07.758Z"
-  },
-  {
-    "id": "29",
-    "slug": "mystic-flora-copy",
-    "name": "Fabulous Riot",
-    "inspiredBy": "Tom Ford's Fucking Fabulous",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/mystic-flora-copy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/mystic-flora-copy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Clary sage",
-        "Lavender"
-      ],
-      "middle": [
-        "Almond",
-        "Vanilla",
-        "Leather",
-        "Orris"
-      ],
-      "base": [
         "Tonka beans",
-        "Amber"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:09.707Z"
-  },
-  {
-    "id": "30",
-    "slug": "fancy-fleur",
-    "name": "Fancy Fleur",
-    "inspiredBy": "Dior's J'adore",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/fancy-fleur.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/fancy-fleur",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Pear",
-        "Melon",
-        "Peach"
-      ],
-      "middle": [
-        "Lily of the Valley",
-        "Freesia",
-        "Rose",
-        "Violet"
-      ],
-      "base": [
-        "Cedar",
-        "Sandal",
-        "Vanilla",
-        "Musk"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:11.691Z"
-  },
-  {
-    "id": "31",
-    "slug": "mystic-flora",
-    "name": "Mystic Flora",
-    "inspiredBy": "Chanel Chance",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/mystic-flora.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/mystic-flora",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Hyacinth",
-        "Pink pepper"
-      ],
-      "middle": [],
-      "base": [
-        "Patchouli",
-        "Vetiver",
-        "Amber"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:13.780Z"
-  },
-  {
-    "id": "32",
-    "slug": "starstruck-blooms",
-    "name": "Starstruck Blooms",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/floral-fantasy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/starstruck-blooms",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Pear",
-        "Bergamot",
-        "Pink Pepper"
-      ],
-      "middle": [
-        "Rose",
-        "Jasmine"
-      ],
-      "base": [
-        "White Musk",
-        "Vanilla",
-        "Patchouli",
-        "Cedar"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:15.897Z"
-  },
-  {
-    "id": "33",
-    "slug": "leather-luster",
-    "name": "Leather Luster",
-    "inspiredBy": "Tom Ford's Tuscan Leather",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/leather-luster.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/leather-luster",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Raspberry",
-        "Saffron",
-        "Thyme"
-      ],
-      "middle": [
-        "Olibanum",
-        "Jasmine"
-      ],
-      "base": [
-        "Leather",
-        "Suede",
-        "Amber",
-        "Woody Notes"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:17.893Z"
-  },
-  {
-    "id": "34",
-    "slug": "nightfall-spell",
-    "name": "Nightfall Spell",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/nightfall-spell.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/nightfall-spell",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Cardamom"
-      ],
-      "middle": [
-        "Lavender",
-        "Virginia Cedar",
-        "Bergamot"
-      ],
-      "base": [
-        "Vetiver",
-        "Caraway"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:19.977Z"
-  },
-  {
-    "id": "35",
-    "slug": "angel-dust",
-    "name": "Angel Dust",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/angel-dust.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/angel-dust",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Cognac"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Tonka Bean",
-        "Oak",
-        "Hedione"
-      ],
-      "base": [
-        "Vanilla",
-        "Praline",
-        "Sandalwood",
-        "Candied Almond"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:22.126Z"
-  },
-  {
-    "id": "36",
-    "slug": "the-man",
-    "name": "The Man",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/the-man.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/the-man",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Ginger",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Spices",
-        "Violet Leaf",
-        "White Pepper",
-        "Basil"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Cedar",
-        "Tahitian Vetiver"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:24.280Z"
-  },
-  {
-    "id": "37",
-    "slug": "bright-tide",
-    "name": "Bright Tide",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/bright-tide.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/bright-tide",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot",
-        "Sicilian Mandarin",
-        "Juniper"
-      ],
-      "middle": [
-        "Pepper",
-        "Rosemary",
-        "Brazilian Rosewood"
-      ],
-      "base": [
-        "Musk",
-        "Incense",
-        "Oakmoss"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:26.396Z"
-  },
-  {
-    "id": "38",
-    "slug": "cupids-call",
-    "name": "Cupid's Call",
-    "inspiredBy": "Givenchy's Irresistible",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/cupids-call.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/cupids-call",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Pear",
-        "Ambrette"
-      ],
-      "middle": [
-        "Rose",
         "Iris"
       ],
       "base": [
-        "Musk",
-        "Virginia Cedar"
+        "Woods notes"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:12:28.510Z"
+    }
   },
   {
-    "id": "39",
-    "slug": "desert-ink-copy",
-    "name": "Pistachio Dream",
-    "inspiredBy": "Kayali's Yum Pistachio Gelato",
-    "price": 485,
+    "id": "18",
+    "name": "Yum Boujee Marshmallow | 81 Kayali (Crème de nuit)",
+    "slug": "yum-boujee-marshmallow-81-kayali-cr-me-de-nuit",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
     "gender": "female",
     "description": "",
-    "imageUrl": "/images/desert-ink-copy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/desert-ink-copy",
+    "imageUrl": "/images/yum-boujee-marshmallow-81-kayali-cr-me-de-nuit.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/yum-boujee-marshmallow-81-kayali-cr-me-de-nuit",
     "inStock": true,
+    "mainNotes": [
+      "Marshmallow",
+      "Strawberries",
+      "Whipped cream",
+      "Sugar",
+      "Vanilla"
+    ],
+    "seasons": [],
+    "longevity": "moderate",
     "notes": {
       "top": [
-        "Pistachio",
-        "Ice Cream",
-        "Bergamot",
-        "Hazelnut",
-        "Rum",
-        "Cardamom"
-      ],
-      "middle": [
-        "Lily-of-the-Valley",
-        "Pear",
-        "Jasmine",
-        "Peony",
-        "Geranium",
-        "Raspberry",
-        "White Peach"
-      ],
-      "base": [
-        "Whipped Cream",
         "Marshmallow",
-        "Cotton Candy",
-        "Tonka Bean",
-        "Loukhoum",
-        "Sandalwood",
-        "Cacao",
-        "Cedar"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:30.675Z"
-  },
-  {
-    "id": "40",
-    "slug": "sweet-sin",
-    "name": "Sweet Sin",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/dark-candy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/sweet-sin",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Poppy"
+        "Strawberries"
       ],
       "middle": [
-        "Tuberose",
-        "Orange Blossom",
-        "Musk"
+        "Whipped cream",
+        "Sugar"
       ],
       "base": [
-        "Patchouli",
-        "Vetiver"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:33.043Z"
-  },
-  {
-    "id": "41",
-    "slug": "cupids-call-copy",
-    "name": "Eden Glow",
-    "inspiredBy": "Kayali's Eden Sparkling Lychee",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/cupids-call-copy.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/cupids-call-copy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Lychee",
-        "Black Currant",
-        "Red Apple",
-        "Italian Lemon"
-      ],
-      "middle": [
-        "Violet",
-        "Rose",
-        "Jasmine Sambac"
-      ],
-      "base": [
-        "Sugar",
-        "Vanilla Absolute",
-        "Musk",
-        "Amber",
-        "Sandalwood",
-        "Cedar"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:35.101Z"
-  },
-  {
-    "id": "42",
-    "slug": "desert-ink-1",
-    "name": "Tobacco Crush",
-    "inspiredBy": "Armani Stronger With You Tobacco",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/desert-ink-1.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/desert-ink-1",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Pink Pepper",
-        "Black Pepper",
-        "Cardamom",
-        "Sage"
-      ],
-      "middle": [
-        "Tobacco",
-        "Cinnamon Leaf",
-        "Chestnut",
-        "Chili Pepper"
-      ],
-      "base": [
-        "Bourbon Vanilla",
-        "Amber",
-        "Guaiac Wood"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:37.359Z"
-  },
-  {
-    "id": "43",
-    "slug": "suede-swagger",
-    "name": "Suede Swagger",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "male",
-    "description": "",
-    "imageUrl": "/images/suede-swagger.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/suede-swagger",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Cardamom"
-      ],
-      "middle": [
-        "Leather",
-        "Jasmine Sambac"
-      ],
-      "base": [
-        "Amber",
-        "Moss",
-        "Patchouli"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:39.284Z"
-  },
-  {
-    "id": "44",
-    "slug": "oh-la-love",
-    "name": "Oh La Love",
-    "inspiredBy": "YSL's Mon Paris",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/oh-la-love.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/oh-la-love",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Strawberry",
-        "Raspberry",
-        "Pear",
-        "Orange",
-        "Tangerine",
-        "Calabrian Bergamot",
-        "Calone"
-      ],
-      "middle": [
-        "Peony",
-        "Jasmine Sambac",
-        "Chinese Jasmine",
-        "Datura",
-        "Orange Blossom"
-      ],
-      "base": [
-        "Indonesian Patchouli Leaf",
-        "Patchouli",
-        "White Musk",
-        "Vanilla",
-        "Ambroxan",
-        "Moss",
-        "Cedar"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:41.440Z"
-  },
-  {
-    "id": "45",
-    "slug": "joy-ride",
-    "name": "Joy Ride",
-    "inspiredBy": "Dior's Joy",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/joy-ride.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/joy-ride",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Mandarin",
-        "Orange"
-      ],
-      "middle": [
-        "Jasmine",
-        "Grasse Rose",
-        "Peach",
-        "Cassis"
-      ],
-      "base": [
-        "White Musk",
-        "Sandalwood",
-        "Cedar",
-        "Patchouli",
-        "Benzoin"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:43.574Z"
-  },
-  {
-    "id": "46",
-    "slug": "code-noir",
-    "name": "Code Noir",
-    "inspiredBy": "nspired beauty",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "unisex",
-    "description": "",
-    "imageUrl": "/images/code-noir.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/code-noir",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Lemon",
-        "Bergamot"
-      ],
-      "middle": [
-        "Star Anise",
-        "Olive Blossom",
-        "Guaiac Wood"
-      ],
-      "base": [
-        "Leather",
-        "Tonka Bean",
-        "Tobacco"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:45.622Z"
-  },
-  {
-    "id": "47",
-    "slug": "black-sugar-copy",
-    "name": "nspired x Ovio Black Sugar",
-    "inspiredBy": "YSL's Black Opium",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/black-sugar-copy.png",
-    "sourceUrl": "https://nspiredbeauty.com/products/black-sugar-copy",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Pear",
-        "Pink Pepper",
-        "Orange Blossom"
-      ],
-      "middle": [
-        "Jasmine",
-        "Coffee"
-      ],
-      "base": [
-        "Vanilla",
-        "Patchouli",
-        "Cedarwood"
-      ]
-    },
-    "scrapedAt": "2026-01-31T04:12:47.978Z"
-  },
-  {
-    "id": "48",
-    "slug": "apple-silk",
-    "name": "Apple Silk",
-    "inspiredBy": "Kayali's Elixir",
-    "price": 485,
-    "currency": "EGP",
-    "gender": "female",
-    "description": "",
-    "imageUrl": "/images/apple-silk.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/apple-silk",
-    "inStock": true,
-    "notes": {
-      "top": [
-        "Red Apple",
-        "Rose Petals"
-      ],
-      "middle": [
-        "May Rose",
-        "Jasmine Sambac"
-      ],
-      "base": [
-        "Patchouli",
-        "Amber",
         "Vanilla"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:12:50.267Z"
+    }
   },
   {
-    "id": "49",
-    "slug": "nspired-x-ovio-sweet-cigar",
-    "name": "nspired x Ovio Sweet Cigar",
-    "inspiredBy": "Tom Ford's Tobacco Vanille",
-    "price": 485,
+    "id": "19",
+    "name": "Delina exclusif (Florenza)",
+    "slug": "delina-exclusif-florenza",
+    "inspiredBy": null,
+    "price": 0,
     "currency": "EGP",
-    "gender": "unisex",
+    "gender": "female",
     "description": "",
-    "imageUrl": "/images/nspired-x-ovio-sweet-cigar.jpg",
-    "sourceUrl": "https://nspiredbeauty.com/products/nspired-x-ovio-sweet-cigar",
+    "imageUrl": "/images/delina-exclusif-florenza.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/delina-exclusif-florenza",
     "inStock": true,
+    "mainNotes": [
+      "Turkish rose",
+      "Litchi",
+      "Vanilla",
+      "Pear",
+      "Amber"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "strong",
     "notes": {
       "top": [
-        "Spicy accord",
-        "Aromatic accord"
+        "Turkish rose",
+        "Litchi"
       ],
       "middle": [
-        "Tobacco",
-        "Tonka beans"
+        "Vanilla",
+        "Pear"
       ],
       "base": [
-        "Vanilla",
-        "Dried fruits",
-        "Chocolate"
+        "Amber"
       ]
-    },
-    "scrapedAt": "2026-01-31T04:12:52.236Z"
+    }
+  },
+  {
+    "id": "20",
+    "name": "Bianco latte (Sweet honey )",
+    "slug": "bianco-latte-sweet-honey",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "female",
+    "description": "",
+    "imageUrl": "/images/bianco-latte-sweet-honey.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/bianco-latte-sweet-honey",
+    "inStock": true,
+    "mainNotes": [
+      "Vanilla",
+      "Caramel",
+      "Honey",
+      "Musk"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "enormous",
+    "notes": {
+      "top": [
+        "Vanilla",
+        "Caramel"
+      ],
+      "middle": [
+        "Honey"
+      ],
+      "base": [
+        "Musk"
+      ]
+    }
   }
 ]
