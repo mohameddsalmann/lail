@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fragranceNotes, noteCategories } from '@/config/quizSteps';
 import type { QuizOption } from '@/types';
@@ -8,7 +8,6 @@ import type { QuizOption } from '@/types';
 const MAX_LOVE_SELECTIONS = 10;
 const MAX_AVOID_SELECTIONS = 20;
 
-// Build categories with actual counts from fragranceNotes
 const categoriesWithCounts = noteCategories.map((cat) => ({
     ...cat,
     count: (fragranceNotes as Record<string, QuizOption[]>)[cat.id]?.length ?? 0,
@@ -18,9 +17,13 @@ interface NotesSelectorStepProps {
     mode: 'love' | 'avoid';
     value: string[];
     onChange: (ids: string[]) => void;
+    disabledNotes?: string[];
 }
 
-export default function NotesSelectorStep({ mode, value, onChange }: NotesSelectorStepProps) {
+const elegantSpring = { type: "spring" as const, stiffness: 350, damping: 28 };
+const bouncySpring = { type: "spring" as const, stiffness: 500, damping: 20 };
+
+export default function NotesSelectorStep({ mode, value, onChange, disabledNotes = [] }: NotesSelectorStepProps) {
     const [search, setSearch] = useState('');
     const [expandedCategory, setExpandedCategory] = useState<string | null>(categoriesWithCounts[0]?.id ?? null);
 
@@ -28,32 +31,62 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
         const arr = Array.isArray(value) ? value : [];
         return arr.filter((id) => id !== 'none');
     }, [value]);
+    const disabledNoteIds = useMemo(
+        () => new Set(disabledNotes.filter((id) => id !== 'none')),
+        [disabledNotes]
+    );
 
     const maxSelections = mode === 'love' ? MAX_LOVE_SELECTIONS : MAX_AVOID_SELECTIONS;
     const atLimit = selectedIds.length >= maxSelections;
+
+    useEffect(() => {
+        if (disabledNoteIds.size === 0) return;
+
+        const safeIds = selectedIds.filter((id) => !disabledNoteIds.has(id));
+        if (safeIds.length !== selectedIds.length) {
+            onChange(safeIds);
+        }
+    }, [disabledNoteIds, onChange, selectedIds]);
 
     const selectedNotes = useMemo(() => {
         const notes: { id: string; label: string; icon: string }[] = [];
         for (const cat of categoriesWithCounts) {
             const items = (fragranceNotes as Record<string, QuizOption[]>)[cat.id] ?? [];
-            for (const n of items) {
-                if (selectedIds.includes(n.id)) notes.push({ id: n.id, label: n.label, icon: n.icon });
+            for (const note of items) {
+                if (selectedIds.includes(note.id) && !notes.some((item) => item.id === note.id)) {
+                    notes.push({ id: note.id, label: note.label, icon: note.icon });
+                }
             }
         }
         return notes.sort((a, b) => selectedIds.indexOf(a.id) - selectedIds.indexOf(b.id));
     }, [selectedIds]);
 
-    const handleToggle = (noteId: string) => {
-        if (noteId === 'none') {
-            onChange([]);
-            return;
+    const disabledSelectedNotes = useMemo(() => {
+        if (disabledNoteIds.size === 0) return [];
+
+        const notes: { id: string; label: string; icon: string }[] = [];
+        for (const cat of categoriesWithCounts) {
+            const items = (fragranceNotes as Record<string, QuizOption[]>)[cat.id] ?? [];
+            for (const note of items) {
+                if (disabledNoteIds.has(note.id) && !notes.some((item) => item.id === note.id)) {
+                    notes.push({ id: note.id, label: note.label, icon: note.icon });
+                }
+            }
         }
+
+        return notes;
+    }, [disabledNoteIds]);
+
+    const handleToggle = (noteId: string) => {
+        if (disabledNoteIds.has(noteId)) return;
+
         if (selectedIds.includes(noteId)) {
             onChange(selectedIds.filter((id) => id !== noteId));
-        } else {
-            if (atLimit) return;
-            onChange([...selectedIds, noteId]);
+            return;
         }
+
+        if (atLimit) return;
+        onChange([...selectedIds, noteId]);
     };
 
     const removeSelected = (noteId: string) => {
@@ -62,85 +95,182 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
 
     const filterNotes = (notes: QuizOption[]) => {
         const q = search.trim().toLowerCase();
-        if (!q) return notes;
-        return notes.filter(
-            (n) =>
-                n.label.toLowerCase().includes(q) ||
-                (n.labelAr && n.labelAr.includes(q))
+        const visibleNotes = disabledNoteIds.size > 0
+            ? notes.filter((note) => !disabledNoteIds.has(note.id))
+            : notes;
+
+        if (!q) return visibleNotes;
+        return visibleNotes.filter(
+            (note) =>
+                note.label.toLowerCase().includes(q) ||
+                (note.labelAr && note.labelAr.toLowerCase().includes(q))
         );
     };
 
     const isLove = mode === 'love';
-    const highlightClass = isLove ? 'text-[#6A1B9A]' : 'text-[#4A148C]';
 
     return (
-        <div className="space-y-5">
-            {/* Title with highlighted word */}
-            <div className="text-center mb-2">
-                <h2 className="text-xl md:text-2xl font-light text-[#1a1a1a] mb-1">
-                    {isLove ? (
-                        <>Which notes do you <span className={`font-semibold ${highlightClass}`}>love</span>?</>
-                    ) : (
-                        <>Any notes you <span className={`font-semibold ${highlightClass}`}>avoid</span>?</>
-                    )}
-                </h2>
-                <p className="text-sm text-[#4a4a4a]">
-                    {isLove
-                        ? 'Select the ingredients that make your heart sing'
-                        : "We'll make sure to exclude these from your recommendations."}
-                </p>
-            </div>
-
-            {/* Search */}
-            <div className="relative">
-                <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#888888]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-                <input
-                    type="text"
-                    value={search}
-                    onChange={(e) => setSearch(e.target.value)}
-                    placeholder="Search ingredients..."
-                    className="w-full border border-[#e0e0e0] pl-10 pr-4 py-3 text-sm outline-none focus:border-[#1a1a1a] bg-white"
-                />
-            </div>
-
-            {/* Selected tags + count */}
-            {(selectedNotes.length > 0 || isLove) && (
-                <div className="flex flex-wrap items-center gap-2">
-                    {selectedNotes.map((note) => (
-                        <motion.span
-                            key={note.id}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="inline-flex items-center gap-1.5 bg-white border border-[#e0e0e0] px-3 py-1.5 text-sm"
+        <div className="space-y-6">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={elegantSpring}
+                className="site-card p-6"
+            >
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+                    <div className="max-w-3xl">
+                        <motion.p
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={elegantSpring}
+                            className="site-eyebrow"
                         >
-                            <span aria-hidden>{note.icon}</span>
-                            <span className="text-[#1a1a1a] font-medium">{note.label}</span>
-                            <button
-                                type="button"
-                                onClick={() => removeSelected(note.id)}
-                                className="ml-1 text-[#888888] hover:text-[#1a1a1a] transition"
-                                aria-label={`Remove ${note.label}`}
-                            >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </motion.span>
-                    ))}
-                    {isLove && (
-                        <span className="text-sm text-[#888888] ml-1">
-                            {selectedIds.length}/{MAX_LOVE_SELECTIONS}
-                        </span>
+                            {isLove ? 'Moodboard' : 'Refine the brief'}
+                        </motion.p>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ ...elegantSpring, delay: 0.05 }}
+                            className="mt-4 text-3xl font-normal leading-tight text-[#121212] md:text-4xl"
+                        >
+                            {isLove ? 'Pin the notes you want leading the scent.' : 'Block anything that ruins the vibe.'}
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ ...elegantSpring, delay: 0.1 }}
+                            className="mt-4 text-base leading-8 text-[#4d4d4d]"
+                        >
+                            {isLove
+                                ? 'Pick the notes that should show up first when you test a fragrance.'
+                                : 'Tell us what to avoid and the shortlist will stay clear of those directions.'}
+                        </motion.p>
+                    </div>
+
+                    <motion.div
+                        className={`
+                            border border-[#121212] p-5 transition-all duration-300
+                            ${atLimit ? 'bg-[#f3f3f3]' : ''}
+                        `}
+                    >
+                        <p className="site-eyebrow">{isLove ? 'Pinned notes' : 'Blocked notes'}</p>
+                        <p className="mt-3 text-4xl text-[#121212]">
+                            {selectedIds.length}
+                        </p>
+                        <p className="mt-2 text-sm text-[#4d4d4d]">out of {maxSelections}</p>
+                    </motion.div>
+                </div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ ...elegantSpring, delay: 0.15 }}
+                    className="relative mt-6"
+                >
+                    <svg
+                        className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#7a7a7a]"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                    <input
+                        type="text"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        placeholder="Search for notes, textures, or ingredients..."
+                        className="site-input pl-12"
+                    />
+                </motion.div>
+            </motion.div>
+
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...elegantSpring, delay: 0.1 }}
+                className="site-card p-5"
+            >
+                <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                    <div>
+                        <p className="site-eyebrow">Selected notes</p>
+                        <p className="mt-3 text-sm leading-7 text-[#4d4d4d]">
+                            {selectedNotes.length > 0
+                                ? isLove
+                                    ? 'These notes will steer the shortlist.'
+                                    : 'These notes will be filtered out.'
+                                : isLove
+                                    ? 'No notes pinned yet.'
+                                    : 'Nothing blocked yet.'}
+                        </p>
+                    </div>
+                    {!isLove && (
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            type="button"
+                            onClick={() => onChange([])}
+                            className="text-xs uppercase tracking-[0.22em] text-[#5c5c5c] transition hover:text-[#121212]"
+                        >
+                            Clear list
+                        </motion.button>
                     )}
                 </div>
-            )}
 
-            {/* Expandable categories */}
-            <div className="max-h-[320px] overflow-y-auto pr-1 space-y-1">
+                <AnimatePresence mode="popLayout">
+                    {selectedNotes.length > 0 && (
+                        <motion.div className="mt-5 flex flex-wrap gap-2">
+                            {selectedNotes.map((note) => (
+                                <motion.button
+                                    key={note.id}
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                    exit={{ opacity: 0, scale: 0.8, y: -10 }}
+                                    transition={bouncySpring}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => removeSelected(note.id)}
+                                    className={`
+                                        inline-flex items-center gap-2 border px-4 py-2 text-sm transition
+                                        ${isLove
+                                            ? 'border-[#121212] bg-[#121212] text-white'
+                                            : 'border-[#121212] bg-white text-[#121212]'
+                                        }
+                                    `}
+                                >
+                                    <span>
+                                        {note.icon}
+                                    </span>
+                                    <span>{note.label}</span>
+                                    <span aria-hidden>×</span>
+                                </motion.button>
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+
+                {disabledSelectedNotes.length > 0 && (
+                    <div className="mt-5 border-t border-[#dcdcdc] pt-5">
+                        <p className="site-eyebrow">{isLove ? 'Already in your blocks' : 'Already in your loves'}</p>
+                        <div className="mt-3 flex flex-wrap gap-2">
+                            {disabledSelectedNotes.map((note) => (
+                                <span
+                                    key={note.id}
+                                    className="inline-flex items-center gap-2 border border-[#dcdcdc] bg-[#f3f3f3] px-4 py-2 text-sm text-[#5c5c5c]"
+                                >
+                                    <span aria-hidden>{note.icon}</span>
+                                    <span>{note.label}</span>
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </motion.div>
+
+            <div className="space-y-3">
                 <AnimatePresence>
-                    {categoriesWithCounts.map((cat) => {
+                    {categoriesWithCounts.map((cat, catIndex) => {
                         const notes = (fragranceNotes as Record<string, QuizOption[]>)[cat.id] ?? [];
                         const filtered = filterNotes(notes);
                         const isExpanded = expandedCategory === cat.id;
@@ -150,58 +280,97 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
                         return (
                             <motion.div
                                 key={cat.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ ...elegantSpring, delay: catIndex * 0.03 }}
                                 layout
-                                className="border border-[#e0e0e0] bg-white overflow-hidden"
+                                className="site-card overflow-hidden"
                             >
-                                <button
+                                <motion.button
+                                    whileTap={{ scale: 0.98 }}
                                     type="button"
                                     onClick={() => setExpandedCategory(isExpanded ? null : cat.id)}
-                                    className="w-full flex items-center justify-between px-4 py-3 text-left hover:bg-[#f5f5f5] transition"
+                                    className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left"
                                 >
-                                    <span className="font-medium text-[#1a1a1a]">{cat.label}</span>
-                                    <span className="flex items-center gap-2 text-[#888888] text-sm">
-                                        <span>{filtered.length}</span>
-                                        <svg
-                                            className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
+                                    <div className="flex items-center gap-4">
+                                        <motion.span
+                                            animate={isExpanded ? { scale: [1, 1.1, 1], rotate: [0, -5, 5, 0] } : { scale: 1 }}
+                                            transition={isExpanded ? { duration: 0.3 } : elegantSpring}
+                                            className="flex h-12 w-12 items-center justify-center border border-[#dcdcdc] bg-[#f3f3f3] text-2xl"
                                         >
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                        </svg>
-                                    </span>
-                                </button>
-                                <AnimatePresence>
+                                            {cat.icon}
+                                        </motion.span>
+                                        <div>
+                                            <p className="text-xl text-[#121212]">{cat.label}</p>
+                                            <p className="mt-1 text-sm text-[#5c5c5c]">
+                                                {filtered.length} note{filtered.length === 1 ? '' : 's'}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <motion.svg
+                                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                                        transition={elegantSpring}
+                                        className="h-5 w-5 text-[#7a7a7a]"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </motion.svg>
+                                </motion.button>
+
+                                <AnimatePresence initial={false}>
                                     {isExpanded && (
                                         <motion.div
                                             initial={{ height: 0, opacity: 0 }}
                                             animate={{ height: 'auto', opacity: 1 }}
                                             exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="border-t border-[#e0e0e0] overflow-hidden"
+                                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                            className="overflow-hidden border-t border-[#dcdcdc]"
                                         >
-                                            <div className="p-3 flex flex-wrap gap-2 bg-[#f5f5f5]">
-                                                {filtered.map((note) => {
+                                            <div className="grid gap-px bg-[#dcdcdc] md:grid-cols-2 xl:grid-cols-3">
+                                                {filtered.map((note, noteIndex) => {
                                                     const selected = selectedIds.includes(note.id);
-                                                    const disabled = !selected && atLimit;
+                                                    const blockedByOtherStep = disabledNoteIds.has(note.id);
+                                                    const disabled = blockedByOtherStep || (!selected && atLimit);
+
                                                     return (
-                                                        <button
+                                                        <motion.button
                                                             key={note.id}
+                                                            initial={{ opacity: 0 }}
+                                                            animate={{ opacity: 1 }}
+                                                            transition={{ delay: noteIndex * 0.02 }}
                                                             type="button"
                                                             onClick={() => !disabled && handleToggle(note.id)}
                                                             disabled={disabled}
+                                                            whileTap={!disabled ? { scale: 0.98 } : {}}
                                                             className={`
-                                                                inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium transition
+                                                                flex items-center justify-between gap-3 bg-white px-4 py-4 text-left text-sm transition
                                                                 ${selected
-                                                                    ? 'bg-[#6A1B9A] text-white'
-                                                                    : 'bg-white text-[#1a1a1a] border border-[#e0e0e0] hover:border-[#888888]'
+                                                                    ? isLove
+                                                                        ? 'bg-[#121212] text-white'
+                                                                        : 'bg-[#f3f3f3] text-[#121212]'
+                                                                    : 'text-[#121212] hover:bg-[#fafafa]'
                                                                 }
-                                                                ${disabled ? 'opacity-50 cursor-not-allowed' : ''}
+                                                                ${disabled ? 'cursor-not-allowed opacity-45' : ''}
                                                             `}
                                                         >
-                                                            <span aria-hidden>{note.icon}</span>
-                                                            {note.label}
-                                                        </button>
+                                                            <span className="flex items-center gap-2">
+                                                                <span aria-hidden>{note.icon}</span>
+                                                                <span>{note.label}</span>
+                                                            </span>
+                                                            {selected && (
+                                                                <motion.span
+                                                                    initial={{ scale: 0 }}
+                                                                    animate={{ scale: 1 }}
+                                                                    transition={bouncySpring}
+                                                                    className="text-[10px] uppercase tracking-[0.22em]"
+                                                                >
+                                                                    On
+                                                                </motion.span>
+                                                            )}
+                                                        </motion.button>
                                                     );
                                                 })}
                                             </div>
@@ -214,10 +383,14 @@ export default function NotesSelectorStep({ mode, value, onChange }: NotesSelect
                 </AnimatePresence>
             </div>
 
-            {atLimit && isLove && (
-                <p className="text-sm text-[#6A1B9A] text-center">
-                    You&apos;ve reached the maximum of {MAX_LOVE_SELECTIONS} notes. Remove one to add another.
-                </p>
+            {atLimit && (
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center text-sm text-[#121212]"
+                >
+                    You&apos;ve reached the maximum of {maxSelections}. Remove one note to add another.
+                </motion.p>
             )}
         </div>
     );

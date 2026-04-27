@@ -122,7 +122,57 @@ const outOfStockPerfume: Perfume = {
   },
 };
 
-const allPerfumes: Perfume[] = [maldivesPerfume, vanillaPerfume, oudPerfume, lightPerfume, outOfStockPerfume];
+const tropicalPerfume: Perfume = {
+  id: '8',
+  name: 'Tropical Splash',
+  slug: 'tropical-splash',
+  inspiredBy: null,
+  price: 649,
+  currency: 'EGP',
+  gender: 'unisex',
+  description: 'A bright tropical summer fragrance',
+  imageUrl: '/test.jpg',
+  sourceUrl: 'https://lailfragrances.com/test',
+  inStock: true,
+  mainNotes: ['Mango', 'Pineapple Coconut', 'Marine notes', 'White rum'],
+  seasons: ['summer', 'spring'],
+  longevity: 'strong',
+  notes: {
+    top: ['Mango', 'Pineapple Coconut'],
+    middle: ['Marine notes'],
+    base: ['White rum'],
+  },
+};
+
+const appleVanillaPerfume: Perfume = {
+  id: '9',
+  name: 'Apple Reserve',
+  slug: 'apple-reserve',
+  inspiredBy: null,
+  price: 699,
+  currency: 'EGP',
+  gender: 'unisex',
+  description: 'An apple and vanilla scent',
+  imageUrl: '/test.jpg',
+  sourceUrl: 'https://lailfragrances.com/test',
+  inStock: true,
+  mainNotes: ['Green apple', 'Vanilla', 'Brandy', 'Rum', 'Pineapple'],
+  seasons: ['all'],
+  longevity: 'strong',
+  notes: {
+    top: ['Green apple', 'Vanilla'],
+    middle: ['Brandy', 'Rum'],
+    base: ['Pineapple'],
+  },
+};
+
+const allPerfumes: Perfume[] = [
+  maldivesPerfume,
+  vanillaPerfume,
+  oudPerfume,
+  lightPerfume,
+  outOfStockPerfume,
+];
 
 // --- Fuzzy Match Tests ---
 
@@ -151,6 +201,18 @@ describe('fuzzyMatch', () => {
   it('handles multi-word notes', () => {
     expect(fuzzyMatch('oud wood', 'oud')).toBe(true);
     expect(fuzzyMatch('water notes', 'watery notes')).toBe(true);
+  });
+
+  it('does not match unrelated embedded substrings', () => {
+    expect(fuzzyMatch('pineapple', 'green apple')).toBe(false);
+  });
+
+  it('does not collapse coconut into vanilla', () => {
+    expect(fuzzyMatch('coconut', 'vanilla')).toBe(false);
+  });
+
+  it('ignores generic filler words in multi-word notes', () => {
+    expect(fuzzyMatch('teakwood', 'marine notes')).toBe(false);
   });
 });
 
@@ -307,7 +369,7 @@ describe('scoreIntensity', () => {
 // --- Full Pipeline Tests ---
 
 describe('recommendPerfumes', () => {
-  it('excludes perfumes below minimum match gate', () => {
+  it('keeps a single-note summer preference from collapsing to zero results', () => {
     const answers: QuizAnswers = {
       gender: 'male',
       favoriteNotes: ['Bergamot'], // Only 1 matching note
@@ -316,9 +378,21 @@ describe('recommendPerfumes', () => {
       intensity: 'light',
     };
     const results = recommendPerfumes(answers, allPerfumes);
-    // Only 1 matching note, below MIN_MATCH_COUNT=2
-    // So it should be excluded
-    expect(results.find(r => r.perfume.id === '6')).toBeUndefined();
+    expect(results.find(r => r.perfume.id === '6')).toBeDefined();
+  });
+
+  it('falls back to broader scoring when a strict summer brief returns nothing', () => {
+    const answers: QuizAnswers = {
+      gender: 'female',
+      favoriteNotes: ['Orange', 'Bergamot'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, allPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    expect(results.find(r => r.perfume.id === '6')).toBeDefined();
   });
 
   it('excludes out-of-stock perfumes', () => {
@@ -418,5 +492,363 @@ describe('recommendPerfumes', () => {
     results.forEach(r => {
       expect(r.matchScore).toBeLessThanOrEqual(99);
     });
+  });
+
+  it('keeps apple-vanilla perfumes out of tropical summer recommendations', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['mango', 'pineapple', 'coconut'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, [tropicalPerfume, appleVanillaPerfume]);
+
+    expect(results[0]?.perfume.id).toBe('8');
+    expect(results.find(r => r.perfume.id === '9')).toBeUndefined();
+  });
+});
+
+// --- Real Perfume Data Tests ---
+// Tests using the actual Lail fragrance catalog to verify end-to-end behavior
+
+import { perfumes as realPerfumes } from '@/data/perfumes';
+
+describe('recommendPerfumes — real catalog', () => {
+  it('recommends Woody Coconut for coconut + pineapple lovers', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['coconut', 'pineapple', 'sandalwood'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('le-bau-la-parfume-woody-coconut');
+  });
+
+  it('recommends Maldives for coconut + mint + fig lovers', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['coconut', 'mint', 'fig'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('le-beau-paradis-garden-maldives');
+  });
+
+  it('recommends vanilla/gourmand fragrances (Sweet Honey, Ranoula) for vanilla lovers', () => {
+    const answers: QuizAnswers = {
+      gender: 'female',
+      favoriteNotes: ['vanilla', 'caramel', 'honey'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('bianco-latte-sweet-honey');
+  });
+
+  it('recommends Blue Nights for apple + ginger + bergamot brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['green-apple', 'ginger', 'bergamot'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('y-edp-blue-nights');
+  });
+
+  it('recommends Denaro for oakmoss + pineapple + grapefruit brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['oakmoss', 'pineapple', 'grapefruit'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('nishane-hacivat-denaro');
+  });
+
+  it('excludes vanilla fragrances when vanilla is avoided', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['coconut', 'pineapple', 'mango'],
+      avoidedNotes: ['vanilla'],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (const r of results) {
+      const allNotes = [
+        ...r.perfume.mainNotes,
+        ...r.perfume.notes.top,
+        ...r.perfume.notes.middle,
+        ...r.perfume.notes.base,
+      ].map(n => n.toLowerCase());
+      expect(allNotes).not.toContain('vanilla');
+    }
+  });
+
+  it('filters by male gender — no female-only results', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['vanilla', 'rose', 'amber'],
+      avoidedNotes: [],
+      season: 'winter',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (const r of results) {
+      expect(r.perfume.gender).not.toBe('female');
+    }
+  });
+
+  it('filters by female gender — no male-only results', () => {
+    const answers: QuizAnswers = {
+      gender: 'female',
+      favoriteNotes: ['rose', 'vanilla', 'amber'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (const r of results) {
+      expect(r.perfume.gender).not.toBe('male');
+    }
+  });
+
+  it('recommends marshmallow/sweet fragrances (Crème de nuit) for gourmand brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'female',
+      favoriteNotes: ['marshmallow', 'vanilla', 'strawberry'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('yum-boujee-marshmallow-81-kayali-cr-me-de-nuit');
+  });
+
+  it('recommends Florenza for rose + litchi + vanilla brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'female',
+      favoriteNotes: ['rose', 'lychee', 'vanilla', 'pear'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('delina-exclusif-florenza');
+  });
+
+  it('recommends mint/fresh fragrances (Mintos) for mint + lemon brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['mint', 'lemon', 'basil'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('torino-21-mintos');
+  });
+
+  it('recommends Spark (Thé Noir 29) for tea + citron + bergamot brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['green-tea', 'bergamot', 'orange', 'neroli'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('imagination-by-lv-spark');
+  });
+
+  it('recommends tropical fragrances (Bali, Tropica) for mango + pineapple brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['mango', 'pineapple', 'coconut', 'marine'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('summer-hammer-bali');
+  });
+
+  it('recommends Tuxedo for apple + rum + brandy brief', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['green-apple', 'rum', 'cognac', 'pineapple'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    const slugs = results.map(r => r.perfume.slug);
+    expect(slugs).toContain('apple-brandy-tuxedo');
+  });
+
+  it('never returns more than 6 results from the real catalog', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['vanilla', 'musk', 'amber', 'bergamot', 'rose'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeLessThanOrEqual(6);
+  });
+
+  it('all scores are between 10 and 99 for real catalog results', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['vanilla', 'coconut', 'mango'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (const r of results) {
+      expect(r.matchScore).toBeGreaterThanOrEqual(10);
+      expect(r.matchScore).toBeLessThanOrEqual(99);
+    }
+  });
+
+  it('results are sorted by score descending', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['bergamot', 'grapefruit', 'mint', 'coconut'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'moderate',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (let i = 1; i < results.length; i++) {
+      expect(results[i - 1].matchScore).toBeGreaterThanOrEqual(results[i].matchScore);
+    }
+  });
+
+  it('each result has at least one match reason', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['vanilla', 'coconut', 'pineapple'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    for (const r of results) {
+      expect(r.matchReasons.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('returns results even with a narrow single-note brief (fallback)', () => {
+    const answers: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['saffron'],
+      avoidedNotes: [],
+      season: 'winter',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+  });
+
+  it('returns results with no favorite notes (neutral scoring)', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: [],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+  });
+
+  it('excluding multiple notes narrows results correctly', () => {
+    const withoutAvoid: QuizAnswers = {
+      gender: 'unisex',
+      favoriteNotes: ['vanilla', 'amber', 'musk'],
+      avoidedNotes: [],
+      season: 'all',
+      intensity: 'moderate',
+    };
+    const withAvoid: QuizAnswers = {
+      ...withoutAvoid,
+      avoidedNotes: ['coconut', 'pineapple', 'mango'],
+    };
+    const broad = recommendPerfumes(withoutAvoid, realPerfumes);
+    const narrow = recommendPerfumes(withAvoid, realPerfumes);
+
+    expect(narrow.length).toBeLessThanOrEqual(broad.length);
+    for (const r of narrow) {
+      const slugsToExclude = ['summer-hammer-bali', 'le-bau-la-parfume-woody-coconut', 'le-beau-paradis-garden-maldives'];
+      expect(slugsToExclude).not.toContain(r.perfume.slug);
+    }
+  });
+
+  it('top result for a strong coconut + tropical brief is Woody Coconut (highest vote total)', () => {
+    const answers: QuizAnswers = {
+      gender: 'male',
+      favoriteNotes: ['coconut', 'pineapple', 'tonka', 'sandalwood'],
+      avoidedNotes: [],
+      season: 'summer',
+      intensity: 'strong',
+    };
+    const results = recommendPerfumes(answers, realPerfumes);
+
+    expect(results.length).toBeGreaterThan(0);
+    expect(results[0].perfume.slug).toBe('le-bau-la-parfume-woody-coconut');
   });
 });

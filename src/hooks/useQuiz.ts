@@ -14,6 +14,19 @@ const initialAnswers: QuizAnswers = {
     intensity: null
 };
 
+function normalizeNoteIds(value: unknown) {
+    if (!Array.isArray(value)) return [];
+    return value.filter((id): id is string => typeof id === 'string' && id !== 'none');
+}
+
+function removeLovedNotesFromAvoided(answers: QuizAnswers): QuizAnswers {
+    const favoriteIds = new Set(answers.favoriteNotes);
+    return {
+        ...answers,
+        avoidedNotes: answers.avoidedNotes.filter((id) => !favoriteIds.has(id)),
+    };
+}
+
 export function useQuiz() {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState<QuizAnswers>(initialAnswers);
@@ -22,7 +35,29 @@ export function useQuiz() {
     const [recommendations, setRecommendations] = useState<RecommendationResult[] | null>(null);
 
     const setAnswer = useCallback((name: keyof QuizAnswers, value: unknown) => {
-        setAnswers(prev => ({ ...prev, [name]: value }));
+        setAnswers(prev => {
+            if (name === 'favoriteNotes') {
+                const favoriteNotes = normalizeNoteIds(value);
+                const favoriteIds = new Set(favoriteNotes);
+
+                return {
+                    ...prev,
+                    favoriteNotes,
+                    avoidedNotes: prev.avoidedNotes.filter((id) => !favoriteIds.has(id)),
+                };
+            }
+
+            if (name === 'avoidedNotes') {
+                const favoriteIds = new Set(prev.favoriteNotes);
+
+                return {
+                    ...prev,
+                    avoidedNotes: normalizeNoteIds(value).filter((id) => !favoriteIds.has(id)),
+                };
+            }
+
+            return { ...prev, [name]: value };
+        });
     }, []);
 
     const nextStep = useCallback(() => {
@@ -47,7 +82,8 @@ export function useQuiz() {
         // Simulate API delay for better UX
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        const results = recommendPerfumes(answers, perfumes);
+        const safeAnswers = removeLovedNotesFromAvoided(answers);
+        const results = recommendPerfumes(safeAnswers, perfumes);
         setRecommendations(results);
         setIsComplete(true);
         setIsLoading(false);
