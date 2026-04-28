@@ -114,7 +114,7 @@ export default function QuizContainer() {
                                     transition={{ ...elegantSpring, delay: 0 }}
                                     className="site-eyebrow"
                                 >
-                                    Lail Scent Finder
+                                    {t('quiz.header.eyebrow')}
                                 </motion.p>
                                 <motion.h1
                                     initial={{ opacity: 0, y: 10 }}
