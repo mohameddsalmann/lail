@@ -188,7 +188,7 @@ export default function QuizQuestion({ step, value, onChange, otherAnswers }: Qu
                 </motion.div>
             )}
 
-            <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-8 flex flex-wrap gap-4">
                 {filteredOptions.map((option, index) => (
                     <motion.div
                         key={option.id}

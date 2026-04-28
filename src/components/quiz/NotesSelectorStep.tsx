@@ -120,55 +120,11 @@ export default function NotesSelectorStep({ mode, value, onChange, disabledNotes
                 transition={elegantSpring}
                 className="site-card p-6"
             >
-                <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-                    <div className="max-w-3xl">
-                        <motion.p
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={elegantSpring}
-                            className="site-eyebrow"
-                        >
-                            {isLove ? t('quiz.step.favoriteNotes.eyebrow') : t('quiz.step.avoidedNotes.eyebrow')}
-                        </motion.p>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ ...elegantSpring, delay: 0.05 }}
-                            className="mt-4 text-3xl font-normal leading-tight text-[#121212] md:text-4xl"
-                        >
-                            {isLove ? t('quiz.step.favoriteNotes.title') : t('quiz.step.avoidedNotes.title')}
-                        </motion.h2>
-                        <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ ...elegantSpring, delay: 0.1 }}
-                            className="mt-4 text-base leading-8 text-[#4d4d4d]"
-                        >
-                            {isLove
-                                ? t('quiz.step.favoriteNotes.desc')
-                                : t('quiz.step.avoidedNotes.desc')}
-                        </motion.p>
-                    </div>
-
-                    <motion.div
-                        className={`
-                            border border-[#121212] p-5 transition-all duration-300
-                            ${atLimit ? 'bg-[#f3f3f3]' : ''}
-                        `}
-                    >
-                        <p className="site-eyebrow">{isLove ? t('notes.pinned') : t('notes.blocked')}</p>
-                        <p className="mt-3 text-4xl text-[#121212]">
-                            {selectedIds.length}
-                        </p>
-                        <p className="mt-2 text-sm text-[#4d4d4d]">{t('notes.outOf')} {maxSelections}</p>
-                    </motion.div>
-                </div>
-
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ ...elegantSpring, delay: 0.15 }}
-                    className="relative mt-6"
+                    className="relative"
                 >
                     <svg
                         className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#7a7a7a]"

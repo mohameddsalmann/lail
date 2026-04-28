@@ -20,7 +20,7 @@ export default function QuizOption({ option, selected, onClick }: QuizOptionProp
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
             className={`
-                relative p-4 border transition-all duration-200 text-left bg-white
+                relative p-4 border transition-all duration-200 text-center bg-white min-w-[140px]
                 ${selected
                     ? 'border-[#6A1B9A] bg-white'
                     : 'border-[#e0e0e0] hover:border-[#888888]'
@@ -41,7 +41,7 @@ export default function QuizOption({ option, selected, onClick }: QuizOptionProp
             )}
 
             {/* Icon */}
-            <span className="mb-2 block text-[#6A1B9A]">
+            <span className="mb-2 block text-[#6A1B9A] flex justify-center">
                 <NoteIcon name={option.icon} size={28} />
             </span>
 
