@@ -1,0 +1,737 @@
+[
+  {
+    "id": "1",
+    "name": "Summer hammer (Bali)",
+    "slug": "summer-hammer-bali",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/summer-hammer-bali.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/summer-hammer-bali",
+    "inStock": true,
+    "mainNotes": [
+      "Mango",
+      "Pineapple Coconut",
+      "Marine notes",
+      "Musk",
+      "White rum"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Mango",
+        "Pineapple Coconut"
+      ],
+      "middle": [
+        "Marine notes",
+        "Musk"
+      ],
+      "base": [
+        "White rum"
+      ]
+    }
+  },
+  {
+    "id": "2",
+    "name": "Erba pura xerjoff (Trobica )",
+    "slug": "erba-pura-xerjoff-trobica",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/erba-pura-xerjoff-trobica.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/erba-pura-xerjoff-trobica",
+    "inStock": true,
+    "mainNotes": [
+      "Tropical fruits",
+      "Vanilla",
+      "Musk",
+      "Amber"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Tropical fruits",
+        "Vanilla"
+      ],
+      "middle": [
+        "Musk"
+      ],
+      "base": [
+        "Amber"
+      ]
+    }
+  },
+  {
+    "id": "3",
+    "name": "Le beau paradis garden ( Maldives)",
+    "slug": "le-beau-paradis-garden-maldives",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/le-beau-paradis-garden-maldives.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/le-beau-paradis-garden-maldives",
+    "inStock": true,
+    "mainNotes": [
+      "Coconut",
+      "Green notes",
+      "Fig",
+      "Water notes",
+      "Mint"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
+    "notes": {
+      "top": [
+        "Coconut",
+        "Green notes"
+      ],
+      "middle": [
+        "Fig",
+        "Water notes"
+      ],
+      "base": [
+        "Mint"
+      ]
+    }
+  },
+  {
+    "id": "4",
+    "name": "Y edp ( Blue nights )",
+    "slug": "y-edp-blue-nights",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/y-edp-blue-nights.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/y-edp-blue-nights",
+    "inStock": true,
+    "mainNotes": [
+      "Green apple",
+      "Ginger",
+      "Bergamot",
+      "Juniper Berries"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Green apple",
+        "Ginger"
+      ],
+      "middle": [
+        "Bergamot"
+      ],
+      "base": [
+        "Juniper Berries"
+      ]
+    }
+  },
+  {
+    "id": "5",
+    "name": "Burberry gold ( Ranoula )",
+    "slug": "burberry-gold-ranoula",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "female",
+    "description": "",
+    "imageUrl": "/images/burberry-gold-ranoula.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/burberry-gold-ranoula",
+    "inStock": true,
+    "mainNotes": [
+      "Vanilla",
+      "Vanilla caviar",
+      "Lavender",
+      "Cacao"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Vanilla",
+        "Vanilla caviar"
+      ],
+      "middle": [
+        "Lavender"
+      ],
+      "base": [
+        "Cacao"
+      ]
+    }
+  },
+  {
+    "id": "6",
+    "name": "apple brandy (tuxedo)",
+    "slug": "apple-brandy-tuxedo",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/apple-brandy-tuxedo.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/apple-brandy-tuxedo",
+    "inStock": true,
+    "mainNotes": [
+      "Green apple",
+      "Vanilla",
+      "Brandy",
+      "Rum",
+      "Pineapple"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Green apple",
+        "Vanilla"
+      ],
+      "middle": [
+        "Brandy",
+        "Rum"
+      ],
+      "base": [
+        "Pineapple"
+      ]
+    }
+  },
+  {
+    "id": "7",
+    "name": "imagination by lv (spark)",
+    "slug": "imagination-by-lv-spark",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/imagination-by-lv-spark.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/imagination-by-lv-spark",
+    "inStock": true,
+    "mainNotes": [
+      "Chinese tea",
+      "Citron",
+      "Bergamot",
+      "Orange",
+      "Neroli"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Chinese tea",
+        "Citron"
+      ],
+      "middle": [
+        "Bergamot",
+        "Orange"
+      ],
+      "base": [
+        "Neroli"
+      ]
+    }
+  },
+  {
+    "id": "8",
+    "name": "symphony by lv (Symphony)",
+    "slug": "symphony-by-lv-symphony",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/symphony-by-lv-symphony.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/symphony-by-lv-symphony",
+    "inStock": true,
+    "mainNotes": [
+      "Grapefruit",
+      "Bergamot",
+      "Ginger"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Grapefruit"
+      ],
+      "middle": [
+        "Bergamot"
+      ],
+      "base": [
+        "Ginger"
+      ]
+    }
+  },
+  {
+    "id": "9",
+    "name": "pacific chill by lv ( breeze)",
+    "slug": "pacific-chill-by-lv-breeze",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/pacific-chill-by-lv-breeze.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/pacific-chill-by-lv-breeze",
+    "inStock": true,
+    "mainNotes": [
+      "Apricot",
+      "Citron",
+      "Beach",
+      "Orange",
+      "Lemon",
+      "Mint"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Apricot",
+        "Citron"
+      ],
+      "middle": [
+        "Beach",
+        "Orange"
+      ],
+      "base": [
+        "Lemon",
+        "Mint"
+      ]
+    }
+  },
+  {
+    "id": "10",
+    "name": "nishane hacivat ( denaro)",
+    "slug": "nishane-hacivat-denaro",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/nishane-hacivat-denaro.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/nishane-hacivat-denaro",
+    "inStock": true,
+    "mainNotes": [
+      "Oakmoss",
+      "Pineapple",
+      "Grapefruit",
+      "Woods"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Oakmoss",
+        "Pineapple"
+      ],
+      "middle": [
+        "Grapefruit"
+      ],
+      "base": [
+        "Woods"
+      ]
+    }
+  },
+  {
+    "id": "11",
+    "name": "valero ( valero x )",
+    "slug": "valero-valero-x",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/valero-valero-x.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/valero-valero-x",
+    "inStock": true,
+    "mainNotes": [
+      "Geranium",
+      "Lavender",
+      "Bergamot",
+      "Citron"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Geranium",
+        "Lavender"
+      ],
+      "middle": [
+        "Bergamot"
+      ],
+      "base": [
+        "Citron"
+      ]
+    }
+  },
+  {
+    "id": "12",
+    "name": "tygar bvlgari ( ليث )",
+    "slug": "tygar-bvlgari",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/tygar-bvlgari.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/tygar-bvlgari",
+    "inStock": true,
+    "mainNotes": [
+      "Grapefruit",
+      "Musk",
+      "Amber",
+      "Ginger"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Musk"
+      ],
+      "middle": [
+        "Amber"
+      ],
+      "base": [
+        "Ginger"
+      ]
+    }
+  },
+  {
+    "id": "13",
+    "name": "gød of fire (عويس)",
+    "slug": "g-d-of-fire",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/g-d-of-fire.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/g-d-of-fire",
+    "inStock": true,
+    "mainNotes": [
+      "Mango",
+      "Lemon",
+      "Ginger",
+      "Musk",
+      "Berries",
+      "Amber"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
+    "notes": {
+      "top": [
+        "Mango",
+        "Lemon"
+      ],
+      "middle": [
+        "Ginger",
+        "Musk"
+      ],
+      "base": [
+        "Berries",
+        "Amber"
+      ]
+    }
+  },
+  {
+    "id": "14",
+    "name": "Dylan blue (raven)",
+    "slug": "dylan-blue-raven",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/dylan-blue-raven.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/dylan-blue-raven",
+    "inStock": true,
+    "mainNotes": [
+      "Ambroxan",
+      "Bergamot Orange",
+      "Water notes",
+      "Grapefruit",
+      "Incense",
+      "Pepper"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "enormous",
+    "notes": {
+      "top": [
+        "Ambroxan",
+        "Bergamot Orange"
+      ],
+      "middle": [
+        "Water notes",
+        "Grapefruit"
+      ],
+      "base": [
+        "Incense",
+        "Pepper"
+      ]
+    }
+  },
+  {
+    "id": "15",
+    "name": "steller times ( Majestic )",
+    "slug": "steller-times-majestic",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/steller-times-majestic.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/steller-times-majestic",
+    "inStock": true,
+    "mainNotes": [
+      "Orange blossom",
+      "Amber",
+      "Wood notes"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Orange blossom"
+      ],
+      "middle": [
+        "Amber"
+      ],
+      "base": [
+        "Wood notes"
+      ]
+    }
+  },
+  {
+    "id": "16",
+    "name": "torino 21 ( Mintos )",
+    "slug": "torino-21-mintos",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "unisex",
+    "description": "",
+    "imageUrl": "/images/torino-21-mintos.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/torino-21-mintos",
+    "inStock": true,
+    "mainNotes": [
+      "Mint",
+      "Lemon",
+      "Musk",
+      "Black currant"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Mint",
+        "Lemon"
+      ],
+      "middle": [
+        "Musk"
+      ],
+      "base": [
+        "Black currant"
+      ]
+    }
+  },
+  {
+    "id": "17",
+    "name": "le bau la parfume (woody coconut )",
+    "slug": "le-bau-la-parfume-woody-coconut",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "male",
+    "description": "",
+    "imageUrl": "/images/le-bau-la-parfume-woody-coconut.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/le-bau-la-parfume-woody-coconut",
+    "inStock": true,
+    "mainNotes": [
+      "Coconut",
+      "Pineapple",
+      "Tonka beans",
+      "Iris",
+      "Woods notes"
+    ],
+    "seasons": [
+      "summer",
+      "spring"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Coconut",
+        "Pineapple"
+      ],
+      "middle": [
+        "Tonka beans",
+        "Iris"
+      ],
+      "base": [
+        "Woods notes"
+      ]
+    }
+  },
+  {
+    "id": "18",
+    "name": "Yum Boujee Marshmallow | 81 Kayali (Crème de nuit)",
+    "slug": "yum-boujee-marshmallow-81-kayali-cr-me-de-nuit",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "female",
+    "description": "",
+    "imageUrl": "/images/yum-boujee-marshmallow-81-kayali-cr-me-de-nuit.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/yum-boujee-marshmallow-81-kayali-cr-me-de-nuit",
+    "inStock": true,
+    "mainNotes": [
+      "Marshmallow",
+      "Strawberries",
+      "Whipped cream",
+      "Sugar",
+      "Vanilla"
+    ],
+    "seasons": [],
+    "longevity": "moderate",
+    "notes": {
+      "top": [
+        "Marshmallow",
+        "Strawberries"
+      ],
+      "middle": [
+        "Whipped cream",
+        "Sugar"
+      ],
+      "base": [
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "19",
+    "name": "Delina exclusif (Florenza)",
+    "slug": "delina-exclusif-florenza",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "female",
+    "description": "",
+    "imageUrl": "/images/delina-exclusif-florenza.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/delina-exclusif-florenza",
+    "inStock": true,
+    "mainNotes": [
+      "Turkish rose",
+      "Litchi",
+      "Vanilla",
+      "Pear",
+      "Amber"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "strong",
+    "notes": {
+      "top": [
+        "Turkish rose",
+        "Litchi"
+      ],
+      "middle": [
+        "Vanilla",
+        "Pear"
+      ],
+      "base": [
+        "Amber"
+      ]
+    }
+  },
+  {
+    "id": "20",
+    "name": "Bianco latte (Sweet honey )",
+    "slug": "bianco-latte-sweet-honey",
+    "inspiredBy": null,
+    "price": 0,
+    "currency": "EGP",
+    "gender": "female",
+    "description": "",
+    "imageUrl": "/images/bianco-latte-sweet-honey.jpg",
+    "sourceUrl": "https://lailfragrances.com/products/bianco-latte-sweet-honey",
+    "inStock": true,
+    "mainNotes": [
+      "Vanilla",
+      "Caramel",
+      "Honey",
+      "Musk"
+    ],
+    "seasons": [
+      "all"
+    ],
+    "longevity": "enormous",
+    "notes": {
+      "top": [
+        "Vanilla",
+        "Caramel"
+      ],
+      "middle": [
+        "Honey"
+      ],
+      "base": [
+        "Musk"
+      ]
+    }
+  }
+]

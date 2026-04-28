@@ -1,0 +1,313 @@
+{
+  "metadata": {
+    "description": "Fragrance note votes for the AI recommendation system. Each fragrance has its top-voted notes with vote counts, used to calculate similarity and generate personalized recommendations.",
+    "totalFragrances": 19,
+    "categories": [
+      "Gourmand & Floral",
+      "Fresh & Citrus",
+      "Woody & Masculine",
+      "Tropical & Exotic"
+    ]
+  },
+  "fragrances": [
+    {
+      "id": "20",
+      "name": "Bianco latte (Sweet honey)",
+      "slug": "bianco-latte-sweet-honey",
+      "inspiredBy": "Bianco Latte",
+      "image": "sweet honey.jpeg",
+      "category": "Gourmand & Floral",
+      "noteVotes": [
+        { "note": "Vanilla", "votes": 2174, "rank": 1 },
+        { "note": "Caramel", "votes": 2076, "rank": 2 },
+        { "note": "Coumarin", "votes": 1154, "rank": 3 },
+        { "note": "Honey", "votes": 1125, "rank": 4 },
+        { "note": "White Musk", "votes": 793, "rank": 5 }
+      ],
+      "totalVotes": 7322
+    },
+    {
+      "id": "19",
+      "name": "Delina exclusif (Florenza)",
+      "slug": "delina-exclusif-florenza",
+      "inspiredBy": "Delina Exclusif",
+      "image": "Florenza.jpeg",
+      "category": "Gourmand & Floral",
+      "noteVotes": [
+        { "note": "Turkish Rose", "votes": 1686, "rank": 1 },
+        { "note": "Litchi", "votes": 1199, "rank": 2 },
+        { "note": "Vanilla", "votes": 1176, "rank": 3 },
+        { "note": "Pear", "votes": 652, "rank": 4 },
+        { "note": "Amber", "votes": 575, "rank": 5 }
+      ],
+      "totalVotes": 5288
+    },
+    {
+      "id": "18",
+      "name": "Yum Boujee Marshmallow | 81 Kayali (Crème de nuit)",
+      "slug": "yum-boujee-marshmallow-81-kayali-cr-me-de-nuit",
+      "inspiredBy": "Yum Boujee Marshmallow | 81",
+      "image": "Crème de nuit.jpeg",
+      "category": "Gourmand & Floral",
+      "noteVotes": [
+        { "note": "Marshmallow", "votes": 1362, "rank": 1 },
+        { "note": "Strawberry", "votes": 1223, "rank": 2 },
+        { "note": "Whipped Cream", "votes": 1138, "rank": 3 },
+        { "note": "Sugar", "votes": 909, "rank": 4 },
+        { "note": "Vanilla", "votes": 836, "rank": 5 }
+      ],
+      "totalVotes": 5468
+    },
+    {
+      "id": "5",
+      "name": "Burberry gold (Ranoula)",
+      "slug": "burberry-gold-ranoula",
+      "inspiredBy": "Goddess",
+      "image": "ranoula.jpeg",
+      "category": "Gourmand & Floral",
+      "noteVotes": [
+        { "note": "Vanilla Absolute", "votes": 2857, "rank": 1 },
+        { "note": "Lavender", "votes": 1840, "rank": 2 },
+        { "note": "Vanilla Caviar", "votes": 1694, "rank": 3 },
+        { "note": "Cacao", "votes": 1020, "rank": 4 },
+        { "note": "Ginger", "votes": 995, "rank": 5 }
+      ],
+      "totalVotes": 8406
+    },
+    {
+      "id": "15",
+      "name": "steller times (Majestic)",
+      "slug": "steller-times-majestic",
+      "inspiredBy": "Majestic Amber",
+      "image": "majestic.jpeg",
+      "category": "Gourmand & Floral",
+      "noteVotes": [
+        { "note": "Orange Blossom", "votes": 561, "rank": 1 },
+        { "note": "Amber", "votes": 546, "rank": 2 },
+        { "note": "Woody Notes", "votes": 453, "rank": 3 }
+      ],
+      "totalVotes": 1560
+    },
+    {
+      "id": "16",
+      "name": "torino 21 (Mintos)",
+      "slug": "torino-21-mintos",
+      "inspiredBy": "Menthe Fraîche",
+      "image": "mintos.jpeg",
+      "category": "Fresh & Citrus",
+      "noteVotes": [
+        { "note": "Mint", "votes": 1452, "rank": 1 },
+        { "note": "Lemon", "votes": 1180, "rank": 2 },
+        { "note": "Basil", "votes": 709, "rank": 3 },
+        { "note": "Musk", "votes": 496, "rank": 4 },
+        { "note": "Black Currant", "votes": 459, "rank": 5 }
+      ],
+      "totalVotes": 4296
+    },
+    {
+      "id": "8",
+      "name": "symphony by lv (Symphony)",
+      "slug": "symphony-by-lv-symphony",
+      "inspiredBy": "Symphony",
+      "image": "symphony.jpeg",
+      "category": "Fresh & Citrus",
+      "noteVotes": [
+        { "note": "Grapefruit", "votes": 842, "rank": 1 },
+        { "note": "Bergamot", "votes": 791, "rank": 2 },
+        { "note": "Ginger", "votes": 157, "rank": 3 }
+      ],
+      "totalVotes": 1790
+    },
+    {
+      "id": "9",
+      "name": "pacific chill by lv (breeze)",
+      "slug": "pacific-chill-by-lv-breeze",
+      "inspiredBy": "Ocean Breeze",
+      "image": "breeze.jpeg",
+      "category": "Fresh & Citrus",
+      "noteVotes": [
+        { "note": "Apricot", "votes": 1299, "rank": 1 },
+        { "note": "Citron", "votes": 1101, "rank": 2 },
+        { "note": "Orange", "votes": 1015, "rank": 3 },
+        { "note": "Lemon", "votes": 940, "rank": 4 },
+        { "note": "Basil", "votes": 809, "rank": 5 }
+      ],
+      "totalVotes": 5164
+    },
+    {
+      "id": "7",
+      "name": "imagination by lv (spark)",
+      "slug": "imagination-by-lv-spark",
+      "inspiredBy": "Thé Noir 29",
+      "image": "spark.jpeg",
+      "category": "Fresh & Citrus",
+      "noteVotes": [
+        { "note": "Chinese Black Tea", "votes": 1691, "rank": 1 },
+        { "note": "Citron", "votes": 1606, "rank": 2 },
+        { "note": "Calabrian Bergamot", "votes": 1393, "rank": 3 },
+        { "note": "Sicilian Orange", "votes": 1073, "rank": 4 },
+        { "note": "Tunisian Neroli", "votes": 950, "rank": 5 }
+      ],
+      "totalVotes": 6713
+    },
+    {
+      "id": "11",
+      "name": "valero (valero x)",
+      "slug": "valero-valero-x",
+      "inspiredBy": "Valero X",
+      "image": "valero x.jpeg",
+      "category": "Fresh & Citrus",
+      "noteVotes": [
+        { "note": "Ambrox Super", "votes": 54, "rank": 1 },
+        { "note": "Geranium", "votes": 46, "rank": 2 },
+        { "note": "Lavender", "votes": 43, "rank": 3 },
+        { "note": "Bergamot", "votes": 33, "rank": 4 }
+      ],
+      "totalVotes": 176
+    },
+    {
+      "id": "12",
+      "name": "tygar bvlgari (ليث)",
+      "slug": "tygar-bvlgari",
+      "inspiredBy": "Tygar",
+      "image": "ليث.jpeg",
+      "category": "Woody & Masculine",
+      "noteVotes": [
+        { "note": "Grapefruit", "votes": 770, "rank": 1 },
+        { "note": "Ambroxan", "votes": 679, "rank": 2 },
+        { "note": "Musk", "votes": 272, "rank": 3 },
+        { "note": "Ginger", "votes": 257, "rank": 4 },
+        { "note": "Ambrette", "votes": 135, "rank": 5 }
+      ],
+      "totalVotes": 2113
+    },
+    {
+      "id": "10",
+      "name": "nishane hacivat (denaro)",
+      "slug": "nishane-hacivat-denaro",
+      "inspiredBy": "Hacivat",
+      "image": "denaro.jpeg",
+      "category": "Woody & Masculine",
+      "noteVotes": [
+        { "note": "Oakmoss", "votes": 2279, "rank": 1 },
+        { "note": "Pineapple", "votes": 2226, "rank": 2 },
+        { "note": "Grapefruit", "votes": 1534, "rank": 3 },
+        { "note": "Bergamot", "votes": 1442, "rank": 4 },
+        { "note": "Woody Notes", "votes": 1355, "rank": 5 }
+      ],
+      "totalVotes": 8836
+    },
+    {
+      "id": "4",
+      "name": "Y edp (Blue nights)",
+      "slug": "y-edp-blue-nights",
+      "inspiredBy": "Y Eau de Parfum",
+      "image": "blue night.jpeg",
+      "category": "Woody & Masculine",
+      "noteVotes": [
+        { "note": "Apple", "votes": 3945, "rank": 1 },
+        { "note": "Sage", "votes": 2306, "rank": 2 },
+        { "note": "Ginger", "votes": 2281, "rank": 3 },
+        { "note": "Bergamot", "votes": 2235, "rank": 4 },
+        { "note": "Amberwood", "votes": 1753, "rank": 5 }
+      ],
+      "totalVotes": 12520
+    },
+    {
+      "id": "6",
+      "name": "apple brandy (tuxedo)",
+      "slug": "apple-brandy-tuxedo",
+      "inspiredBy": "Apple Brandy on the Rocks",
+      "image": "tuxedo.jpeg",
+      "category": "Woody & Masculine",
+      "noteVotes": [
+        { "note": "Apple", "votes": 1042, "rank": 1 },
+        { "note": "Rum", "votes": 725, "rank": 2 },
+        { "note": "Brandy", "votes": 660, "rank": 3 },
+        { "note": "Pineapple", "votes": 465, "rank": 4 },
+        { "note": "Cardamom", "votes": 464, "rank": 5 }
+      ],
+      "totalVotes": 3356
+    },
+    {
+      "id": "17",
+      "name": "le bau la parfume (woody coconut)",
+      "slug": "le-bau-la-parfume-woody-coconut",
+      "inspiredBy": "Le Beau Le Parfum",
+      "image": "woody coconut.jpeg",
+      "category": "Tropical & Exotic",
+      "noteVotes": [
+        { "note": "Coconut", "votes": 4321, "rank": 1 },
+        { "note": "Pineapple", "votes": 2853, "rank": 2 },
+        { "note": "Tonka Bean", "votes": 2367, "rank": 3 },
+        { "note": "Woodsy Notes", "votes": 2163, "rank": 4 },
+        { "note": "Sandalwood", "votes": 1631, "rank": 5 }
+      ],
+      "totalVotes": 13335
+    },
+    {
+      "id": "13",
+      "name": "gød of fire (عويس)",
+      "slug": "g-d-of-fire",
+      "inspiredBy": "God of Fire",
+      "image": "عويث.jpeg",
+      "category": "Tropical & Exotic",
+      "noteVotes": [
+        { "note": "Mango", "votes": 902, "rank": 1 },
+        { "note": "Lemon", "votes": 481, "rank": 2 },
+        { "note": "Ginger", "votes": 467, "rank": 3 },
+        { "note": "Musk", "votes": 346, "rank": 4 },
+        { "note": "Red Berries", "votes": 324, "rank": 5 }
+      ],
+      "totalVotes": 2520
+    },
+    {
+      "id": "3",
+      "name": "Le beau paradis garden (Maldives)",
+      "slug": "le-beau-paradis-garden-maldives",
+      "inspiredBy": "Le Beau Paradise Garden",
+      "image": "maldives.jpeg",
+      "category": "Tropical & Exotic",
+      "noteVotes": [
+        { "note": "Coconut", "votes": 2713, "rank": 1 },
+        { "note": "Green Notes", "votes": 2227, "rank": 2 },
+        { "note": "Fig", "votes": 1592, "rank": 3 },
+        { "note": "Watery Notes", "votes": 1491, "rank": 4 },
+        { "note": "Mint", "votes": 1342, "rank": 5 }
+      ],
+      "totalVotes": 9365
+    },
+    {
+      "id": "2",
+      "name": "Erba pura xerjoff (Trobica)",
+      "slug": "erba-pura-xerjoff-trobica",
+      "inspiredBy": "Erba Pura",
+      "image": "tropica.jpeg",
+      "category": "Tropical & Exotic",
+      "noteVotes": [
+        { "note": "Fruits", "votes": 2167, "rank": 1 },
+        { "note": "White Musk", "votes": 1400, "rank": 2 },
+        { "note": "Madagascar Vanilla", "votes": 961, "rank": 3 },
+        { "note": "Sicilian Orange", "votes": 884, "rank": 4 },
+        { "note": "Amber", "votes": 798, "rank": 5 }
+      ],
+      "totalVotes": 6210
+    },
+    {
+      "id": "1",
+      "name": "Summer hammer (Bali)",
+      "slug": "summer-hammer-bali",
+      "inspiredBy": "Summer Hammer",
+      "image": "bali.jpeg",
+      "category": "Tropical & Exotic",
+      "noteVotes": [
+        { "note": "Mango", "votes": 375, "rank": 1 },
+        { "note": "Pineapple", "votes": 293, "rank": 2 },
+        { "note": "Coconut Milk", "votes": 275, "rank": 3 },
+        { "note": "White Flowers", "votes": 215, "rank": 4 },
+        { "note": "Musk", "votes": 189, "rank": 5 }
+      ],
+      "totalVotes": 1347
+    }
+  ]
+}
