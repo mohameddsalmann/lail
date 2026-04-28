@@ -1,77 +1,84 @@
 import { QuizStep } from '@/types';
 
-// Fragrance notes organized by category (6 categories, 56 notes)
+// Fragrance notes organized by category (8 categories)
 export const fragranceNotes = {
-    citrusFresh: [
+    citrus: [
         { id: 'bergamot', label: 'Bergamot', labelAr: 'برغموت', icon: 'bergamot' },
-        { id: 'citron', label: 'Citron', labelAr: 'سيترون', icon: 'citron' },
         { id: 'grapefruit', label: 'Grapefruit', labelAr: 'جريب فروت', icon: 'grapefruit' },
         { id: 'lemon', label: 'Lemon', labelAr: 'ليمون', icon: 'lemon' },
+        { id: 'citron', label: 'Citron', labelAr: 'سيترون', icon: 'citron' },
         { id: 'orange', label: 'Orange', labelAr: 'برتقال', icon: 'blood-orange' },
+        { id: 'neroli', label: 'Neroli', labelAr: 'نيرولي', icon: 'blossom' },
+        { id: 'orange-blossom', label: 'Orange Blossom', labelAr: 'زهر البرتقال', icon: 'blossom' },
+    ],
+    tropicalFruits: [
+        { id: 'mango', label: 'Mango', labelAr: 'مانجو', icon: 'mango' },
+        { id: 'pineapple', label: 'Pineapple', labelAr: 'أناناس', icon: 'pineapple' },
+        { id: 'coconut', label: 'Coconut', labelAr: 'جوز الهند', icon: 'coconut' },
         { id: 'green-apple', label: 'Green Apple', labelAr: 'تفاح أخضر', icon: 'apple' },
+        { id: 'apricot', label: 'Apricot', labelAr: 'مشمش', icon: 'apricot' },
+        { id: 'lychee', label: 'Litchi', labelAr: 'ليتشي', icon: 'lychee' },
+        { id: 'pear', label: 'Pear', labelAr: 'كمثرى', icon: 'pear' },
+        { id: 'fig', label: 'Fig', labelAr: 'تين', icon: 'fig' },
+        { id: 'berries', label: 'Berries', labelAr: 'توت', icon: 'raspberry' },
+        { id: 'blackcurrant', label: 'Black Currant', labelAr: 'كشمش أسود', icon: 'blackcurrant' },
+        { id: 'strawberry', label: 'Strawberries', labelAr: 'فراولة', icon: 'strawberry' },
+    ],
+    floralGreen: [
+        { id: 'lavender', label: 'Lavender', labelAr: 'لافندر', icon: 'lavender' },
+        { id: 'geranium', label: 'Geranium', labelAr: 'إبرة الراعي', icon: 'geranium' },
+        { id: 'turkish-rose', label: 'Turkish Rose', labelAr: 'ورد تركي', icon: 'rose' },
+        { id: 'iris', label: 'Iris', labelAr: 'سوسن', icon: 'iris' },
         { id: 'green-notes', label: 'Green Notes', labelAr: 'نوتات خضراء', icon: 'green-notes' },
+        { id: 'tonka', label: 'Tonka Beans', labelAr: 'تونكا', icon: 'tonka' },
+    ],
+    freshAquatic: [
+        { id: 'mint', label: 'Mint', labelAr: 'نعناع', icon: 'mint' },
         { id: 'water-notes', label: 'Water Notes', labelAr: 'نوتات مائية', icon: 'wave' },
         { id: 'marine-notes', label: 'Marine Notes', labelAr: 'نوتات بحرية', icon: 'wave' },
         { id: 'beach', label: 'Beach', labelAr: 'شاطئ', icon: 'wave' },
+        { id: 'green-tea', label: 'Chinese Tea', labelAr: 'شاي صيني', icon: 'black-tea' },
+        { id: 'juniper', label: 'Juniper Berries', labelAr: 'عرعر', icon: 'juniper' },
     ],
-    fruits: [
-        { id: 'apricot', label: 'Apricot', labelAr: 'مشمش', icon: 'apricot' },
-        { id: 'blackcurrant', label: 'Black Currant', labelAr: 'كشمش أسود', icon: 'blackcurrant' },
-        { id: 'fig', label: 'Fig', labelAr: 'تين', icon: 'fig' },
-        { id: 'lychee', label: 'Litchi', labelAr: 'ليتشي', icon: 'lychee' },
-        { id: 'mango', label: 'Mango', labelAr: 'مانجو', icon: 'mango' },
-        { id: 'pineapple', label: 'Pineapple', labelAr: 'أناناس', icon: 'pineapple' },
-        { id: 'pear', label: 'Pear', labelAr: 'كمثرى', icon: 'pear' },
-        { id: 'strawberry', label: 'Strawberries', labelAr: 'فراولة', icon: 'strawberry' },
-        { id: 'tropical-fruits', label: 'Tropical Fruits', labelAr: 'فواكه استوائية', icon: 'mango' },
-        { id: 'berries', label: 'Berries', labelAr: 'توت', icon: 'raspberry' },
+    spicyHerbal: [
+        { id: 'ginger', label: 'Ginger', labelAr: 'زنجبيل', icon: 'ginger' },
+        { id: 'pepper', label: 'Pepper', labelAr: 'فلفل', icon: 'black-pepper' },
+        { id: 'incense', label: 'Incense', labelAr: 'بخور', icon: 'incense' },
+    ],
+    woodyEarthy: [
+        { id: 'woods', label: 'Wood Notes', labelAr: 'نوتات خشبية', icon: 'cedar' },
+        { id: 'oakmoss', label: 'Oakmoss', labelAr: 'طحلب البلوط', icon: 'oakmoss' },
     ],
     sweetGourmand: [
+        { id: 'vanilla', label: 'Vanilla', labelAr: 'فانيليا', icon: 'vanilla' },
+        { id: 'vanilla-caviar', label: 'Vanilla Caviar', labelAr: 'فانيليا كافيار', icon: 'vanilla' },
+        { id: 'cacao', label: 'Cacao', labelAr: 'كاكاو', icon: 'chocolate' },
         { id: 'caramel', label: 'Caramel', labelAr: 'كراميل', icon: 'caramel' },
         { id: 'honey', label: 'Honey', labelAr: 'عسل', icon: 'honey' },
         { id: 'marshmallow', label: 'Marshmallow', labelAr: 'مارشميلو', icon: 'marshmallow' },
+        { id: 'whipped-cream', label: 'Whipped Cream', labelAr: 'كريمة مخفوقة', icon: 'cream' },
         { id: 'sugar', label: 'Sugar', labelAr: 'سكر', icon: 'sugar' },
-        { id: 'vanilla', label: 'Vanilla', labelAr: 'فانيليا', icon: 'vanilla' },
-        { id: 'vanilla-caviar', label: 'Vanilla Caviar', labelAr: 'فانيليا كافيار', icon: 'vanilla' },
-        { id: 'tonka', label: 'Tonka Beans', labelAr: 'تونكا', icon: 'tonka' },
-        { id: 'cacao', label: 'Cacao', labelAr: 'كاكاو', icon: 'chocolate' },
+    ],
+    muskAmberBase: [
+        { id: 'musk', label: 'Musk', labelAr: 'مسك', icon: 'musk' },
+        { id: 'amber', label: 'Amber', labelAr: 'عنبر', icon: 'amber' },
+        { id: 'ambroxan', label: 'Ambroxan', labelAr: 'أمبروكسان', icon: 'ambroxan' },
         { id: 'white-rum', label: 'White Rum', labelAr: 'روم أبيض', icon: 'rum' },
         { id: 'brandy', label: 'Brandy', labelAr: 'براندي', icon: 'cognac' },
         { id: 'rum', label: 'Rum', labelAr: 'روم', icon: 'rum' },
-    ],
-    herbalFloral: [
-        { id: 'green-tea', label: 'Chinese Tea', labelAr: 'شاي صيني', icon: 'black-tea' },
-        { id: 'geranium', label: 'Geranium', labelAr: 'إبرة الراعي', icon: 'geranium' },
-        { id: 'iris', label: 'Iris', labelAr: 'سوسن', icon: 'iris' },
-        { id: 'lavender', label: 'Lavender', labelAr: 'لافندر', icon: 'lavender' },
-        { id: 'mint', label: 'Mint', labelAr: 'نعناع', icon: 'mint' },
-        { id: 'neroli', label: 'Neroli', labelAr: 'نيرولي', icon: 'blossom' },
-        { id: 'orange-blossom', label: 'Orange Blossom', labelAr: 'زهر البرتقال', icon: 'blossom' },
-        { id: 'turkish-rose', label: 'Turkish Rose', labelAr: 'ورد تركي', icon: 'rose' },
-    ],
-    woodyEarthy: [
-        { id: 'amber', label: 'Amber', labelAr: 'عنبر', icon: 'amber' },
-        { id: 'oakmoss', label: 'Oakmoss', labelAr: 'طحلب البلوط', icon: 'oakmoss' },
-        { id: 'woods', label: 'Woods', labelAr: 'أخشاب', icon: 'cedar' },
-        { id: 'incense', label: 'Incense', labelAr: 'بخور', icon: 'incense' },
-    ],
-    baseAccent: [
-        { id: 'ambroxan', label: 'Ambroxan', labelAr: 'أمبروكسان', icon: 'ambroxan' },
-        { id: 'musk', label: 'Musk', labelAr: 'مسك', icon: 'musk' },
-        { id: 'ginger', label: 'Ginger', labelAr: 'زنجبيل', icon: 'ginger' },
-        { id: 'pepper', label: 'Pepper', labelAr: 'فلفل', icon: 'black-pepper' },
-        { id: 'juniper', label: 'Juniper Berries', labelAr: 'عرعر', icon: 'juniper' },
     ],
 };
 
 // Note categories for the quiz UI
 export const noteCategories = [
-    { id: 'citrusFresh', label: 'Citrus & Fresh', labelAr: 'حمضيات ومنعش', icon: 'citrus', description: '10 notes' },
-    { id: 'fruits', label: 'Fruits', labelAr: 'فواكه', icon: 'fruity', description: '10 notes' },
-    { id: 'sweetGourmand', label: 'Sweet & Gourmand', labelAr: 'حلو', icon: 'gourmand', description: '11 notes' },
-    { id: 'herbalFloral', label: 'Herbal & Floral', labelAr: 'عشبي وزهري', icon: 'floral', description: '8 notes' },
-    { id: 'woodyEarthy', label: 'Woody & Earthy', labelAr: 'خشبي وترابي', icon: 'woody', description: '4 notes' },
-    { id: 'baseAccent', label: 'Base & Accent Notes', labelAr: 'نوتات أساسية', icon: 'ambery', description: '5 notes' },
+    { id: 'citrus', label: 'Citrus', labelAr: 'حمضيات', icon: 'citrus', description: '7 notes' },
+    { id: 'tropicalFruits', label: 'Tropical & Fruits', labelAr: 'استوائية وفواكه', icon: 'fruity', description: '11 notes' },
+    { id: 'floralGreen', label: 'Floral & Green', labelAr: 'زهري وأخضر', icon: 'floral', description: '6 notes' },
+    { id: 'freshAquatic', label: 'Fresh & Aquatic', labelAr: 'منعش ومائي', icon: 'wave', description: '6 notes' },
+    { id: 'spicyHerbal', label: 'Spicy & Herbal', labelAr: 'حار وعشبي', icon: 'spicy', description: '3 notes' },
+    { id: 'woodyEarthy', label: 'Woody & Earthy', labelAr: 'خشبي وترابي', icon: 'woody', description: '2 notes' },
+    { id: 'sweetGourmand', label: 'Sweet & Gourmand', labelAr: 'حلو', icon: 'gourmand', description: '8 notes' },
+    { id: 'muskAmberBase', label: 'Musk, Amber & Base', labelAr: 'مسك وعنبر وأساسية', icon: 'ambery', description: '6 notes' },
 ];
 
 // Get all notes as a flat array
