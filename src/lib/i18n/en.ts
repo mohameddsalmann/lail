@@ -115,6 +115,13 @@ export const en: Record<string, string> = {
     'notes.on': 'On',
     'notes.outOf': 'out of',
     'notes.maxReached': "You've reached the maximum. Remove one note to add another.",
+    'notes.count': 'note',
+    'notes.count_plural': 'notes',
+
+    // ── Fallback Banner ──
+    'quiz.results.fallback.banner': 'No strong matches found — these are the closest alternatives based on your selections.',
+    'quiz.results.fallback.explore': 'Explore our collection',
+    'quiz.results.fallback.retake': 'Retake the quiz',
 
     // ── Concierge ──
     'concierge.title': 'Cozy Concierge',

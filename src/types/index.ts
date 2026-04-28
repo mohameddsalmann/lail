@@ -85,3 +85,8 @@ export interface RecommendationResult {
   matchScore: number;
   matchReasons: string[];
 }
+
+export interface RecommendationOutput {
+  results: RecommendationResult[];
+  usedFallback: boolean;
+}

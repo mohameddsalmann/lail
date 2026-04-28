@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { QuizOption as QuizOptionType } from '@/types';
 import NoteIcon from '@/components/icons/NoteIcon';
+import { useI18n } from '@/lib/i18n/context';
 
 interface QuizOptionProps {
     option: QuizOptionType;
@@ -11,6 +12,8 @@ interface QuizOptionProps {
 }
 
 export default function QuizOption({ option, selected, onClick }: QuizOptionProps) {
+    const { locale } = useI18n();
+    const label = locale === 'ar' ? option.labelAr : option.label;
     return (
         <motion.button
             whileHover={{ scale: 1.02 }}
@@ -44,12 +47,7 @@ export default function QuizOption({ option, selected, onClick }: QuizOptionProp
 
             {/* Label */}
             <span className={`font-medium block text-sm ${selected ? 'text-[#6A1B9A]' : 'text-[#1a1a1a]'}`}>
-                {option.label}
-            </span>
-
-            {/* Arabic label */}
-            <span className="text-xs text-[#888888] block mt-0.5" dir="rtl">
-                {option.labelAr}
+                {label}
             </span>
 
             {/* Description */}

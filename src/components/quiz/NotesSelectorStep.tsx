@@ -26,7 +26,7 @@ const elegantSpring = { type: "spring" as const, stiffness: 350, damping: 28 };
 const bouncySpring = { type: "spring" as const, stiffness: 500, damping: 20 };
 
 export default function NotesSelectorStep({ mode, value, onChange, disabledNotes = [] }: NotesSelectorStepProps) {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const [search, setSearch] = useState('');
     const [expandedCategory, setExpandedCategory] = useState<string | null>(categoriesWithCounts[0]?.id ?? null);
 
@@ -57,12 +57,12 @@ export default function NotesSelectorStep({ mode, value, onChange, disabledNotes
             const items = (fragranceNotes as Record<string, QuizOption[]>)[cat.id] ?? [];
             for (const note of items) {
                 if (selectedIds.includes(note.id) && !notes.some((item) => item.id === note.id)) {
-                    notes.push({ id: note.id, label: note.label, icon: note.icon });
+                    notes.push({ id: note.id, label: locale === 'ar' ? note.labelAr : note.label, icon: note.icon });
                 }
             }
         }
         return notes.sort((a, b) => selectedIds.indexOf(a.id) - selectedIds.indexOf(b.id));
-    }, [selectedIds]);
+    }, [selectedIds, locale]);
 
     const disabledSelectedNotes = useMemo(() => {
         if (disabledNoteIds.size === 0) return [];
@@ -72,13 +72,13 @@ export default function NotesSelectorStep({ mode, value, onChange, disabledNotes
             const items = (fragranceNotes as Record<string, QuizOption[]>)[cat.id] ?? [];
             for (const note of items) {
                 if (disabledNoteIds.has(note.id) && !notes.some((item) => item.id === note.id)) {
-                    notes.push({ id: note.id, label: note.label, icon: note.icon });
+                    notes.push({ id: note.id, label: locale === 'ar' ? note.labelAr : note.label, icon: note.icon });
                 }
             }
         }
 
         return notes;
-    }, [disabledNoteIds]);
+    }, [disabledNoteIds, locale]);
 
     const handleToggle = (noteId: string) => {
         if (disabledNoteIds.has(noteId)) return;
@@ -304,9 +304,9 @@ export default function NotesSelectorStep({ mode, value, onChange, disabledNotes
                                             <NoteIcon name={cat.icon} size={24} />
                                         </motion.span>
                                         <div>
-                                            <p className="text-xl text-[#121212]">{cat.label}</p>
+                                            <p className="text-xl text-[#121212]">{locale === 'ar' ? cat.labelAr : cat.label}</p>
                                             <p className="mt-1 text-sm text-[#5c5c5c]">
-                                                {filtered.length} note{filtered.length === 1 ? '' : 's'}
+                                                {filtered.length} {filtered.length === 1 ? t('notes.count') : t('notes.count_plural')}
                                             </p>
                                         </div>
                                     </div>
@@ -361,7 +361,7 @@ export default function NotesSelectorStep({ mode, value, onChange, disabledNotes
                                                         >
                                                             <span className="flex items-center gap-2">
                                                                 <span className="text-[#6A1B9A]"><NoteIcon name={note.icon} size={16} /></span>
-                                                                <span>{note.label}</span>
+                                                                <span>{locale === 'ar' ? note.labelAr : note.label}</span>
                                                             </span>
                                                             {selected && (
                                                                 <motion.span

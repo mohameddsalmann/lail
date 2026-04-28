@@ -8,10 +8,10 @@
 
 export const RECOMMENDATION_CONFIG = {
   // --- Minimum Match Gate ---
-  // Minimum number of notes that must match for a perfume to be included
-  MIN_MATCH_COUNT: 2,
-  // Alternative: dynamic threshold as a ratio of perfume's total notes
-  // MIN_MATCH_RATIO: 0.3, // uncomment to use instead of MIN_MATCH_COUNT
+  // Dynamic threshold: Math.max(2, Math.ceil(perfume.mainNotes.length * ratio))
+  // Default ratio = 0.6, fallback ratio = 0.4
+  MIN_MATCH_RATIO: 0.6,
+  MIN_MATCH_RATIO_FALLBACK: 0.4,
 
   // --- Scoring Weights (must sum to 100) ---
   SCORE_WEIGHTS: {
@@ -32,7 +32,7 @@ export const RECOMMENDATION_CONFIG = {
   } as const,
 
   // --- Output Thresholds ---
-  MIN_TOTAL_SCORE: 10,        // Minimum score to appear in results
+  MIN_TOTAL_SCORE: 20,        // Minimum score to appear in results
   MAX_RESULTS: 6,             // How many perfumes to return
   RICH_PROFILE_THRESHOLD: 6,  // Min total notes for rich profile bonus
 

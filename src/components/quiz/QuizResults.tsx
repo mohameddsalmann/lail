@@ -9,9 +9,10 @@ import { useI18n } from '@/lib/i18n/context';
 interface QuizResultsProps {
     recommendations: RecommendationResult[];
     onRetake: () => void;
+    usedFallback?: boolean;
 }
 
-export default function QuizResults({ recommendations, onRetake }: QuizResultsProps) {
+export default function QuizResults({ recommendations, onRetake, usedFallback }: QuizResultsProps) {
     const { t } = useI18n();
 
     if (recommendations.length === 0) {
@@ -31,19 +32,19 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                     <p className="text-[#4a4a4a] text-sm mb-6">
                         {t('quiz.results.empty.desc')}
                     </p>
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
                         <button
-                            onClick={onRetake}
+                            onClick={() => window.open('https://lailfragrances.com/', '_blank')}
                             className="bg-[#6A1B9A] text-white px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#4A148C] transition"
                         >
-                            {t('quiz.results.empty.tryAgain')}
+                            {t('quiz.results.fallback.explore')}
                         </button>
-                        <Link
-                            href="/"
-                            className="text-[#4a4a4a] hover:text-[#1a1a1a] text-sm"
+                        <button
+                            onClick={onRetake}
+                            className="border border-[#1a1a1a] text-[#1a1a1a] px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#1a1a1a] hover:text-white transition"
                         >
-                            {t('quiz.results.empty.home')}
-                        </Link>
+                            {t('quiz.results.fallback.retake')}
+                        </button>
                     </div>
                 </motion.div>
             </div>
@@ -88,6 +89,33 @@ export default function QuizResults({ recommendations, onRetake }: QuizResultsPr
                             {t('quiz.results.subtitle')}
                         </p>
                     </motion.div>
+
+                    {/* Fallback Banner */}
+                    {usedFallback && (
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="bg-[#FFF8E1] border border-[#F5C518] p-4 mb-8 text-center"
+                        >
+                            <p className="text-[#4a4a4a] text-sm mb-4">
+                                {t('quiz.results.fallback.banner')}
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                                <button
+                                    onClick={() => window.open('https://lailfragrances.com/', '_blank')}
+                                    className="bg-[#6A1B9A] text-white px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#4A148C] transition"
+                                >
+                                    {t('quiz.results.fallback.explore')}
+                                </button>
+                                <button
+                                    onClick={onRetake}
+                                    className="border border-[#1a1a1a] text-[#1a1a1a] px-6 py-3 text-sm uppercase tracking-wider font-medium hover:bg-[#1a1a1a] hover:text-white transition"
+                                >
+                                    {t('quiz.results.fallback.retake')}
+                                </button>
+                            </div>
+                        </motion.div>
+                    )}
 
                     {/* Results Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

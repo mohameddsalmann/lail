@@ -23,7 +23,7 @@ function getOptionLabel(stepName: string, optionId: string | null) {
 const elegantSpring = { type: "spring" as const, stiffness: 350, damping: 28 };
 
 export default function QuizContainer() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const {
         currentStep,
         totalSteps,
@@ -37,11 +37,12 @@ export default function QuizContainer() {
         isComplete,
         isLoading,
         recommendations,
+        usedFallback,
         canProceed
     } = useQuiz();
 
     if (isComplete && recommendations) {
-        return <QuizResults recommendations={recommendations} onRetake={resetQuiz} />;
+        return <QuizResults recommendations={recommendations} onRetake={resetQuiz} usedFallback={usedFallback} />;
     }
 
     if (isLoading) {
@@ -238,7 +239,7 @@ export default function QuizContainer() {
                                             ? t('quiz.brief.notesLove')
                                             : item.name === 'avoidedNotes'
                                                 ? t('quiz.brief.notesAvoid')
-                                                : item.question;
+                                                : locale === 'ar' ? item.questionAr : item.question;
 
                                         return (
                                             <motion.div

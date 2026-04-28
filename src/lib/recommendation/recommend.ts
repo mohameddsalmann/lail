@@ -3,9 +3,11 @@
  *
  * Main entry point for the perfume recommendation system.
  * Applies hard filters → minimum match gate → scoring → sorting → top N results.
+ *
+ * Uses a 3-stage fallback: strict → relaxed match ratio → lower score floor.
  */
 
-import { Perfume, QuizAnswers, RecommendationResult } from '@/types';
+import { Perfume, QuizAnswers, RecommendationResult, RecommendationOutput } from '@/types';
 import { RECOMMENDATION_CONFIG } from './config';
 import { anyMatch, countMatches } from './fuzzyMatch';
 import {
@@ -69,14 +71,18 @@ function passesStockFilter(perfume: Perfume): boolean {
 // --- Minimum Match Gate ---
 
 /**
- * Count how many of the user's favorite notes match the perfume's notes.
- * If the count is below the threshold, exclude the perfume.
+ * Dynamic match gate: count how many of the user's favorite notes match
+ * the perfume's notes, and compare against a dynamic threshold based on
+ * the perfume's total note count and the given ratio.
  */
-function passesMinimumMatchGate(perfume: Perfume, answers: QuizAnswers): boolean {
+function passesDynamicMatchGate(
+  perfume: Perfume,
+  answers: QuizAnswers,
+  ratio: number
+): boolean {
   const favoriteNotes = answers.favoriteNotes || [];
   if (favoriteNotes.length === 0 || favoriteNotes.includes('none')) return true;
 
-  // Use mainNotes (flat ordered array) if available, fallback to tiered notes
   const allPerfumeNotes = perfume.mainNotes && perfume.mainNotes.length > 0
     ? perfume.mainNotes
     : [...perfume.notes.top, ...perfume.notes.middle, ...perfume.notes.base];
@@ -84,35 +90,27 @@ function passesMinimumMatchGate(perfume: Perfume, answers: QuizAnswers): boolean
   const matchedUserIndices = countMatches(favoriteNotes, allPerfumeNotes);
   const matchCount = matchedUserIndices.size;
 
-  // Use fixed threshold
-  if (matchCount < RECOMMENDATION_CONFIG.MIN_MATCH_COUNT) return false;
-
-  // Alternative: dynamic threshold (uncomment to use)
-  // const totalNotes = allPerfumeNotes.length;
-  // const minRequired = Math.ceil(totalNotes * (RECOMMENDATION_CONFIG.MIN_MATCH_RATIO ?? 0.6));
-  // if (matchCount < minRequired) return false;
+  const minimumRequired = Math.max(2, Math.ceil(allPerfumeNotes.length * ratio));
+  if (matchCount < minimumRequired) return false;
 
   return true;
 }
 
-// --- Main Recommendation Function ---
+// --- Scoring Loop ---
+
+interface ScoringOptions {
+  matchRatio: number;
+  minScore: number;
+}
 
 /**
- * Recommend perfumes based on quiz answers.
- *
- * Pipeline:
- * 1. Hard filters (gender, avoided notes, stock)
- * 2. Minimum match gate (enough notes in common)
- * 3. Multi-factor scoring with position weighting
- * 4. Sort by score descending, return top N
- *
- * @param answers - User's quiz answers
- * @param perfumeList - Full list of perfumes to filter/score
- * @returns Top N RecommendationResult objects sorted by match score
+ * Run the full scoring pipeline with configurable match ratio and score floor.
+ * This is the core function that can be called multiple times with relaxed thresholds.
  */
-export function recommendPerfumes(
+function runScoring(
   answers: QuizAnswers,
-  perfumeList: Perfume[]
+  perfumeList: Perfume[],
+  options: ScoringOptions
 ): RecommendationResult[] {
   const weights = RECOMMENDATION_CONFIG.SCORE_WEIGHTS;
   const results: RecommendationResult[] = [];
@@ -122,12 +120,11 @@ export function recommendPerfumes(
 
     if (!passesGenderFilter(perfume, answers)) continue;
     if (!passesAvoidedNotesFilter(perfume, answers)) continue;
-    // Stock filter disabled — data may be stale; all products are available at lailfragrances.com
-    // if (!passesStockFilter(perfume)) continue;
+    if (!passesStockFilter(perfume)) continue;
 
-    // === STEP 2: MINIMUM MATCH GATE ===
+    // === STEP 2: DYNAMIC MATCH GATE ===
 
-    if (!passesMinimumMatchGate(perfume, answers)) continue;
+    if (!passesDynamicMatchGate(perfume, answers, options.matchRatio)) continue;
 
     // === STEP 3: SCORING ===
 
@@ -170,7 +167,7 @@ export function recommendPerfumes(
     const normalizedScore = Math.min(Math.round(totalScore), 99);
 
     // Only include if score meets minimum threshold
-    if (normalizedScore >= RECOMMENDATION_CONFIG.MIN_TOTAL_SCORE) {
+    if (normalizedScore >= options.minScore) {
       results.push({
         perfume,
         matchScore: normalizedScore,
@@ -183,4 +180,52 @@ export function recommendPerfumes(
   return results
     .sort((a, b) => b.matchScore - a.matchScore)
     .slice(0, RECOMMENDATION_CONFIG.MAX_RESULTS);
+}
+
+// --- Main Recommendation Function ---
+
+/**
+ * Recommend perfumes based on quiz answers.
+ *
+ * Pipeline (3-stage fallback):
+ * 1. Strict: ratio 0.6, minScore 20
+ * 2. Relaxed ratio: ratio 0.4, minScore 20
+ * 3. Lower floor: ratio 0.4, minScore 15
+ *
+ * @param answers - User's quiz answers
+ * @param perfumeList - Full list of perfumes to filter/score
+ * @returns RecommendationOutput with results and usedFallback flag
+ */
+export function recommendPerfumes(
+  answers: QuizAnswers,
+  perfumeList: Perfume[]
+): RecommendationOutput {
+  // Stage 1: Strict thresholds
+  let results = runScoring(answers, perfumeList, {
+    matchRatio: RECOMMENDATION_CONFIG.MIN_MATCH_RATIO,
+    minScore: RECOMMENDATION_CONFIG.MIN_TOTAL_SCORE,
+  });
+
+  const usedFallback = results.length === 0;
+
+  // Stage 2: Relax match ratio
+  if (usedFallback) {
+    results = runScoring(answers, perfumeList, {
+      matchRatio: RECOMMENDATION_CONFIG.MIN_MATCH_RATIO_FALLBACK,
+      minScore: RECOMMENDATION_CONFIG.MIN_TOTAL_SCORE,
+    });
+  }
+
+  // Stage 3: Lower score floor as last resort
+  if (results.length === 0) {
+    results = runScoring(answers, perfumeList, {
+      matchRatio: RECOMMENDATION_CONFIG.MIN_MATCH_RATIO_FALLBACK,
+      minScore: 15,
+    });
+  }
+
+  return {
+    results,
+    usedFallback,
+  };
 }

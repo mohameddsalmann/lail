@@ -377,7 +377,7 @@ describe('recommendPerfumes', () => {
       season: 'summer',
       intensity: 'light',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     expect(results.find(r => r.perfume.id === '6')).toBeDefined();
   });
 
@@ -389,15 +389,13 @@ describe('recommendPerfumes', () => {
       season: 'summer',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     expect(results.find(r => r.perfume.id === '6')).toBeDefined();
   });
 
   it('excludes out-of-stock perfumes', () => {
-    // Stock filter is disabled — out-of-stock perfumes are now included
-    // since data may be stale. This test verifies the filter is bypassed.
     const answers: QuizAnswers = {
       gender: 'female',
       favoriteNotes: ['Rose', 'Jasmine', 'Vanilla', 'Oud', 'Amber'],
@@ -405,9 +403,9 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
-    // outOfStockPerfume should now be included since stock filter is disabled
-    expect(results.find(r => r.perfume.id === '7')).toBeDefined();
+    const { results } = recommendPerfumes(answers, allPerfumes);
+    // outOfStockPerfume has inStock: false → should be excluded
+    expect(results.find(r => r.perfume.id === '7')).toBeUndefined();
   });
 
   it('excludes perfumes with avoided notes', () => {
@@ -418,7 +416,7 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     // vanillaPerfume contains Vanilla → should be excluded
     expect(results.find(r => r.perfume.id === '4')).toBeUndefined();
   });
@@ -431,7 +429,7 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     // vanillaPerfume is female-only → should be excluded
     expect(results.find(r => r.perfume.id === '4')).toBeUndefined();
   });
@@ -444,7 +442,7 @@ describe('recommendPerfumes', () => {
       season: 'summer',
       intensity: 'light',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     // lightPerfume is unisex → should be included for male user
     expect(results.find(r => r.perfume.id === '6')).toBeDefined();
   });
@@ -457,14 +455,14 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     // Results should be sorted descending by score
     for (let i = 1; i < results.length; i++) {
       expect(results[i - 1].matchScore).toBeGreaterThanOrEqual(results[i].matchScore);
     }
-    // All scores should be >= MIN_TOTAL_SCORE (10)
+    // All scores should be >= MIN_TOTAL_SCORE (20)
     results.forEach(r => {
-      expect(r.matchScore).toBeGreaterThanOrEqual(10);
+      expect(r.matchScore).toBeGreaterThanOrEqual(20);
     });
   });
 
@@ -476,7 +474,7 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     expect(results.length).toBeLessThanOrEqual(6);
   });
 
@@ -488,7 +486,7 @@ describe('recommendPerfumes', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, allPerfumes);
+    const { results } = recommendPerfumes(answers, allPerfumes);
     results.forEach(r => {
       expect(r.matchScore).toBeLessThanOrEqual(99);
     });
@@ -502,7 +500,7 @@ describe('recommendPerfumes', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, [tropicalPerfume, appleVanillaPerfume]);
+    const { results } = recommendPerfumes(answers, [tropicalPerfume, appleVanillaPerfume]);
 
     expect(results[0]?.perfume.id).toBe('8');
     expect(results.find(r => r.perfume.id === '9')).toBeUndefined();
@@ -523,7 +521,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -538,7 +536,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -553,7 +551,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -568,7 +566,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -583,7 +581,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -598,7 +596,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (const r of results) {
       const allNotes = [
@@ -619,7 +617,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (const r of results) {
       expect(r.perfume.gender).not.toBe('female');
@@ -634,7 +632,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (const r of results) {
       expect(r.perfume.gender).not.toBe('male');
@@ -649,7 +647,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -664,7 +662,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -679,7 +677,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -694,7 +692,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -709,7 +707,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -724,7 +722,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     const slugs = results.map(r => r.perfume.slug);
@@ -739,12 +737,12 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'all',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeLessThanOrEqual(6);
   });
 
-  it('all scores are between 10 and 99 for real catalog results', () => {
+  it('all scores are between 15 and 99 for real catalog results', () => {
     const answers: QuizAnswers = {
       gender: 'unisex',
       favoriteNotes: ['vanilla', 'coconut', 'mango'],
@@ -752,10 +750,10 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (const r of results) {
-      expect(r.matchScore).toBeGreaterThanOrEqual(10);
+      expect(r.matchScore).toBeGreaterThanOrEqual(15);
       expect(r.matchScore).toBeLessThanOrEqual(99);
     }
   });
@@ -768,7 +766,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'moderate',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (let i = 1; i < results.length; i++) {
       expect(results[i - 1].matchScore).toBeGreaterThanOrEqual(results[i].matchScore);
@@ -783,7 +781,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     for (const r of results) {
       expect(r.matchReasons.length).toBeGreaterThan(0);
@@ -798,7 +796,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'winter',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
   });
@@ -811,7 +809,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
   });
@@ -828,8 +826,8 @@ describe('recommendPerfumes — real catalog', () => {
       ...withoutAvoid,
       avoidedNotes: ['coconut', 'pineapple', 'mango'],
     };
-    const broad = recommendPerfumes(withoutAvoid, realPerfumes);
-    const narrow = recommendPerfumes(withAvoid, realPerfumes);
+    const broad = recommendPerfumes(withoutAvoid, realPerfumes).results;
+    const narrow = recommendPerfumes(withAvoid, realPerfumes).results;
 
     expect(narrow.length).toBeLessThanOrEqual(broad.length);
     for (const r of narrow) {
@@ -846,7 +844,7 @@ describe('recommendPerfumes — real catalog', () => {
       season: 'summer',
       intensity: 'strong',
     };
-    const results = recommendPerfumes(answers, realPerfumes);
+    const { results } = recommendPerfumes(answers, realPerfumes);
 
     expect(results.length).toBeGreaterThan(0);
     expect(results[0].perfume.slug).toBe('le-bau-la-parfume-woody-coconut');

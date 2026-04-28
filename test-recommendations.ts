@@ -217,26 +217,27 @@ let passCount = 0;
 let failCount = 0;
 
 for (const tc of testCases) {
-  const results = recommendPerfumes(tc.answers, perfumes);
-  
+  const output = recommendPerfumes(tc.answers, perfumes);
+  const results = output.results;
+
   const status = results.length > 0 ? '✅ PASS' : '❌ FAIL';
   if (results.length > 0) passCount++; else failCount++;
 
   console.log(`\n${status} — ${tc.label}`);
   console.log(`  Results: ${results.length} perfume(s)`);
-  
+
   if (results.length === 0) {
     console.log('  ⚠️  NO RECOMMENDATIONS RETURNED');
     // Debug: check which filters are blocking
     const { RECOMMENDATION_CONFIG } = require('./src/lib/recommendation/config');
     const { anyMatch, countMatches } = require('./src/lib/recommendation/fuzzyMatch');
-    
+
     for (const p of perfumes.slice(0, 5)) {
       // Gender check
-      const genderOk = !tc.answers.gender || tc.answers.gender === 'unisex' 
+      const genderOk = !tc.answers.gender || tc.answers.gender === 'unisex'
         || (tc.answers.gender === 'male' && (p.gender === 'male' || p.gender === 'unisex'))
         || (tc.answers.gender === 'female' && (p.gender === 'female' || p.gender === 'unisex'));
-      
+
       // Avoided notes check
       let avoidedOk = true;
       if (tc.answers.avoidedNotes?.length > 0 && !tc.answers.avoidedNotes.includes('none')) {
@@ -246,7 +247,7 @@ for (const tc of testCases) {
           if (anyMatch(av, allNotes)) { avoidedOk = false; break; }
         }
       }
-      
+
       // Min match gate
       let minMatchOk = true;
       if (tc.answers.favoriteNotes?.length > 0 && !tc.answers.favoriteNotes.includes('none')) {
@@ -254,11 +255,11 @@ for (const tc of testCases) {
         const matchCount = countMatches(tc.answers.favoriteNotes, allNotes).size;
         if (matchCount < RECOMMENDATION_CONFIG.MIN_MATCH_COUNT) minMatchOk = false;
       }
-      
+
       console.log(`  Debug[${p.name}]: gender=${genderOk} avoided=${avoidedOk} minMatch=${minMatchOk}`);
     }
   }
-  
+
   for (const r of results) {
     console.log(`  #${results.indexOf(r) + 1}: ${r.perfume.name} (${r.matchScore}%) — ${r.matchReasons.join('; ')}`);
   }

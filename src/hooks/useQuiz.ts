@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { QuizAnswers, RecommendationResult } from '@/types';
+import { QuizAnswers, RecommendationResult, RecommendationOutput } from '@/types';
 import { quizSteps } from '@/config/quizSteps';
 import { perfumes } from '@/data/perfumes';
 import { recommendPerfumes } from '@/lib/recommendation/recommend';
@@ -33,6 +33,7 @@ export function useQuiz() {
     const [isComplete, setIsComplete] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [recommendations, setRecommendations] = useState<RecommendationResult[] | null>(null);
+    const [usedFallback, setUsedFallback] = useState(false);
 
     const setAnswer = useCallback((name: keyof QuizAnswers, value: unknown) => {
         setAnswers(prev => {
@@ -83,8 +84,9 @@ export function useQuiz() {
         await new Promise(resolve => setTimeout(resolve, 1500));
 
         const safeAnswers = removeLovedNotesFromAvoided(answers);
-        const results = recommendPerfumes(safeAnswers, perfumes);
-        setRecommendations(results);
+        const output: RecommendationOutput = recommendPerfumes(safeAnswers, perfumes);
+        setRecommendations(output.results);
+        setUsedFallback(output.usedFallback);
         setIsComplete(true);
         setIsLoading(false);
     }, [answers]);
@@ -94,6 +96,7 @@ export function useQuiz() {
         setAnswers(initialAnswers);
         setIsComplete(false);
         setRecommendations(null);
+        setUsedFallback(false);
     }, []);
 
     const canProceed = useCallback(() => {
@@ -118,6 +121,7 @@ export function useQuiz() {
         isComplete,
         isLoading,
         recommendations,
+        usedFallback,
         canProceed: canProceed()
     };
 }

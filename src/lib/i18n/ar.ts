@@ -115,6 +115,13 @@ export const ar: Record<string, string> = {
     'notes.on': 'تشغيل',
     'notes.outOf': 'من',
     'notes.maxReached': 'لقد وصلت للحد الأقصى. أزل نوتة لإضافة أخرى.',
+    'notes.count': 'عطر',
+    'notes.count_plural': 'عطور',
+
+    // ── Fallback Banner ──
+    'quiz.results.fallback.banner': 'لم نعثر على مطابقات قوية — هذه أقرب البدائل بناءً على اختياراتك.',
+    'quiz.results.fallback.explore': 'استكشف مجموعتنا',
+    'quiz.results.fallback.retake': 'أعد الاختبار',
 
     // ── Concierge ──
     'concierge.title': 'مستشار كوزي',

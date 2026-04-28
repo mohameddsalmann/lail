@@ -153,17 +153,6 @@ export default function QuizQuestion({ step, value, onChange, otherAnswers }: Qu
             >
                 {finalCopy.description}
             </motion.p>
-            {step.questionAr && (
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.15 }}
-                    className="mt-3 text-sm text-[#7a7a7a]" dir="rtl"
-                >
-                    {step.questionAr}
-                </motion.p>
-            )}
-
             {step.type === 'multiple' && (
                 <motion.p
                     initial={{ opacity: 0 }}
